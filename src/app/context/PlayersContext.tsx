@@ -1,11 +1,11 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 export interface Player {
   playerName: string;
   gangHouse: string;
   gangName: string;
-  email: string;
-  camp: string;
+  email?: string;
+  camp?: string;
 }
 
 interface PlayersContextType {
@@ -16,15 +16,50 @@ interface PlayersContextType {
 const PlayersContext = createContext<PlayersContextType | undefined>(undefined);
 
 export function PlayersProvider({ children }: { children: ReactNode }) {
-  const [players, setPlayers] = useState<Player[]>([
-    // Mock data - przykładowi gracze
-    { gangName: "MARUDERZY ALBIONU", gangHouse: "Goliath", playerName: "Adam Mobius", email: "adam@example.com", camp: "Chmiel i Słód" },
-    { gangName: "IRON MONKERS", gangHouse: "Orlock", playerName: "Papayu", email: "papayu@example.com", camp: "Matisoft" },
-    { gangName: "Alternatywni", gangHouse: "Outcasts", playerName: "Golzak", email: "golzak@example.com", camp: "Wastes" },
-  ]);
+  const [players, setPlayers] = useState<Player[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadPlayers() {
+      try {
+        const response = await fetch("/.netlify/functions/players");
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!cancelled && Array.isArray(data)) {
+          setPlayers(data);
+        }
+      } catch (error) {
+        console.error("Could not load players", error);
+      }
+    }
+
+    loadPlayers();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const addPlayer = (player: Player) => {
-    setPlayers((prev) => [...prev, player]);
+    fetch("/.netlify/functions/register-player", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(player),
+    })
+      .then(async (response) => {
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          console.error(data?.message || "Nie udało się zapisać zgłoszenia.");
+          return;
+        }
+
+        setPlayers((prev) => [...prev, data]);
+      })
+      .catch((error) => {
+        console.error("Could not register player", error);
+      });
   };
 
   return (
