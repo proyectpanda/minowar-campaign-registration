@@ -32,6 +32,91 @@ async function writePlayers(players: Player[]) {
   await store.setJSON(PLAYERS_KEY, players);
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function playerConfirmationEmail(playerName: string) {
+  const safePlayerName = escapeHtml(playerName);
+
+  return `<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Great Warsaw Campaign</title>
+  </head>
+  <body style="margin:0; padding:0; background:#EDE7E3; color:#0D0D0E;">
+    <div style="background:#EDE7E3; padding:40px 16px;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:680px; margin:0 auto; background:#F9F5F3; border:1px solid #BEBDBC; border-radius:14px;">
+        <tr>
+          <td style="padding:44px 44px 28px 44px;">
+            <div style="font-family:Arial, Helvetica, sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#6E757C; margin-bottom:28px;">
+              MINOWAR
+            </div>
+
+            <h1 style="margin:0; font-family:'Barlow Condensed', 'Arial Narrow', Arial, Helvetica, sans-serif; font-size:56px; line-height:0.92; letter-spacing:0.5px; font-weight:700; text-transform:uppercase; color:#0D0D0E;">
+              GREAT<br />WARSAW<br />CAMPAIGN
+            </h1>
+
+            <div style="height:2px; background:#BEBDBC; margin:34px 0 34px 0;"></div>
+
+            <p style="margin:0 0 18px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.55; color:#0D0D0E;">
+              Cześć ${safePlayerName},
+            </p>
+
+            <p style="margin:0 0 18px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.55; color:#0D0D0E;">
+              Dzięki za zapisanie się do <strong>Great Warsaw Campaign</strong>.
+            </p>
+
+            <p style="margin:0 0 18px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.55; color:#0D0D0E;">
+              Twoje zgłoszenie zostało przyjęte i jesteś już widoczny na liście uczestników kampanii.
+            </p>
+
+            <p style="margin:0 0 28px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.55; color:#0D0D0E;">
+              Więcej szczegółów dotyczących startu kampanii, organizacji rozgrywek i kolejnych kroków wyślemy niedługo na ten adres e-mail.
+            </p>
+
+            <div style="background:#EFE9E5; border:1px solid #BEBDBC; border-radius:10px; padding:18px 22px; margin:30px 0;">
+              <div style="font-family:Arial, Helvetica, sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#6E757C; margin-bottom:8px;">
+                Status zgłoszenia
+              </div>
+              <div style="font-family:'Barlow Condensed', 'Arial Narrow', Arial, Helvetica, sans-serif; font-size:26px; line-height:1.15; font-weight:700; text-transform:uppercase; color:#1C3B56;">
+                Zgłoszenie przyjęte
+              </div>
+            </div>
+
+            <p style="margin:0 0 28px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:1.55; color:#0D0D0E;">
+              Do zobaczenia w warszawskim Underhive.
+            </p>
+
+            <p style="margin:0; font-family:'Barlow Condensed', 'Arial Narrow', Arial, Helvetica, sans-serif; font-size:28px; line-height:1.2; font-weight:700; color:#1C3B56;">
+              Minowar
+            </p>
+
+            <p style="margin:6px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.45; color:#6E757C;">
+              Nieoficjalna kampania społeczności Necromunda
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:20px 44px 36px 44px; border-top:1px solid #BEBDBC;">
+            <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:1.45; color:#6E757C;">
+              Ten mail został wysłany automatycznie po zapisaniu się do kampanii.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>`;
+}
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -105,27 +190,20 @@ export default async (req: Request, context: Context) => {
     await Promise.allSettled([
       sendEmail(
         email,
-        "Dołączyłeś do Wielkiej Kampanii Warszawskiej",
-        `<p>Cześć ${playerName},</p>
-         <p>Udało Ci się dołączyć do Wielkiej Kampanii Warszawskiej.</p>
-         <p><strong>Gracz:</strong> ${playerName}<br />
-         <strong>Gang:</strong> ${gangName}<br />
-         <strong>House:</strong> ${gangHouse}<br />
-         <strong>Obóz:</strong> ${camp}</p>
-         <p>Więcej szczegółów wyślemy później na ten adres e-mail.</p>
-         <p>Minowar</p>`
+        "Dołączyłeś do Great Warsaw Campaign",
+        playerConfirmationEmail(playerName)
       ),
       adminEmail
         ? sendEmail(
             adminEmail,
             "Nowa rejestracja do Wielkiej Kampanii Warszawskiej",
             `<p>Nowa rejestracja do kampanii.</p>
-             <p><strong>Gracz:</strong> ${playerName}<br />
-             <strong>E-mail:</strong> ${email}<br />
-             <strong>Gang:</strong> ${gangName}<br />
-             <strong>House:</strong> ${gangHouse}<br />
-             <strong>Obóz:</strong> ${camp}<br />
-             <strong>Data:</strong> ${createdAt}</p>`
+             <p><strong>Gracz:</strong> ${escapeHtml(playerName)}<br />
+             <strong>E-mail:</strong> ${escapeHtml(email)}<br />
+             <strong>Gang:</strong> ${escapeHtml(gangName)}<br />
+             <strong>House:</strong> ${escapeHtml(gangHouse)}<br />
+             <strong>Obóz:</strong> ${escapeHtml(camp)}<br />
+             <strong>Data:</strong> ${escapeHtml(createdAt)}</p>`
           )
         : Promise.resolve(),
     ]);
