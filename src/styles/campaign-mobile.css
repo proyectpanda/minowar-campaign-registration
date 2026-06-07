@@ -58,8 +58,15 @@
     overflow-wrap: anywhere;
   }
 
+  section > .mt-\[60px\] {
+    display: flex;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   button[form="registration-form"] {
-    width: calc(100vw - 48px);
+    width: 100%;
     max-width: 460px;
     min-height: 86px;
     height: auto;
