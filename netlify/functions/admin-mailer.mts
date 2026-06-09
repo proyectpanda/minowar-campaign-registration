@@ -158,16 +158,31 @@ export default async (req: Request) => {
       if (recipients.length === 0) return json({ message: "No recipients found." }, 400);
 
       const html = renderEmail(subject, message);
-      const results = await Promise.allSettled(recipients.map((recipient) => deliver(recipient.email, subject, html)));
-      const sent = results.filter((result) => result.status === "fulfilled").length;
-      const failed = results.length - sent;
-      const failures = results
-        .map((result, index) => ({ result, recipient: recipients[index] }))
-        .filter(({ result }) => result.status === "rejected")
-        .map(({ result, recipient }) => ({
-          email: recipient.email,
-          error: result.status === "rejected" ? String(result.reason) : "",
-        }));
+      const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const results = [];
+
+for (const recipient of recipients) {
+  try {
+    await deliver(recipient.email, subject, html);
+    results.push({
+      email: recipient.email,
+      status: "sent",
+    });
+  } catch (error) {
+    results.push({
+      email: recipient.email,
+      status: "failed",
+      error: String(error),
+    });
+  }
+
+  await sleep(300);
+}
+
+const sent = results.filter((result) => result.status === "sent").length;
+const failed = results.length - sent;
+const failures = results.filter((result) => result.status === "failed");
 
       const adminEmail = Netlify.env.get("ADMIN_EMAIL");
       if (adminEmail) {
