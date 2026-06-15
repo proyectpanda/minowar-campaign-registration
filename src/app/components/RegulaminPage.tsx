@@ -77,9 +77,8 @@ export function RegulaminPage() {
               <Section title="3. Start kampanii">
                 <ol className="text-[#6e757c] text-[18px] leading-[28px] list-decimal pl-6 space-y-1" style={bodyStyle}>
                   <li>Dokładny termin startu kampanii zostanie ustalony po zebraniu zgłoszeń i sprawdzeniu zainteresowania graczy.</li>
-                  <li>Planowany start kampanii - czerwiec</li>
+                  <li>Planowany start kampanii - 22 czerwca.</li>
                   <li>Pierwsza edycja kampanii może zostać potraktowana jako sezon testowy / pilotażowy.</li>
-                  <li>Wstępny termin startu - 22 czerwca.</li>
                 </ol>
               </Section>
 
@@ -90,12 +89,12 @@ export function RegulaminPage() {
                     Podczas rejestracji gracz będzie mógł:
                     <br />- zapisać się do kampanii,
                     <br />- wpisać swój gang,
-                    <br />- opłacić wpisowe,
                     <br />- wybrać domyślną lokalizację / bazę.
                   </li>
                   <li>Domyślna lokalizacja / baza służy głównie celom organizacyjnym i statystycznym.</li>
                   <li>Wybór domyślnej lokalizacji nie oznacza obowiązku grania wyłącznie w tym miejscu.</li>
                   <li>Gracze mogą rozgrywać swoje gry w dowolnej lokalizacji partnerskiej.</li>
+                  <li>Rejestracja będzie dostępna do końca 19 czerwca. Od 20 czerwca formularz rejestracji nie będzie już dostępny, gdyż rozpoczną się przygotowania do startu Kampanii.</li>
                 </ol>
               </Section>
 
@@ -106,6 +105,7 @@ export function RegulaminPage() {
                   <li>Jeśli kampania nie dojdzie do skutku z przyczyn decyzji organizatora to pieniądze są zwracane.</li>
                   <li>Wpisowe jest przeznaczone na organizację kampanii, wsparcie lokalizacji partnerskich oraz pulę nagród oraz na przygotowanie zaplecza terenowego pod kolejne edycje.</li>
                   <li>Wpisowe nie podlega zwrotowi w przypadku rezygnacji gracza lub wykluczenia z kampanii przez organizatora.</li>
+                  <li>Szczegółowe odnośnie wpłaty wpisowego będzie przesłane w wiadomości na adres e-mail wpisany podczas rejestracji.</li>
                 </ol>
               </Section>
 
@@ -121,6 +121,7 @@ export function RegulaminPage() {
                   <li>Pairingi będą losowane co rundę.</li>
                   <li>Organizatorzy będą starać się unikać powtarzania tych samych par graczy.</li>
                   <li>Kampania będzie prowadzona w aplikacji Munda Manager.</li>
+                  <li>Organizatorzy dołożą wszelkich starań aby nowi/niedoświadczeni gracze byli w początkowych fazach dobierani w pary z “Mentorami”, czyli graczami którzy będą służyć wsparciem w pierwszych grach i wprowadzą w klimat świata gry.</li>
                 </ol>
               </Section>
 
@@ -131,10 +132,13 @@ export function RegulaminPage() {
                   <li>Gracz odpowiada za prawidłowe przygotowanie swojej rozpiski.</li>
                   <li>House rules będą ograniczone do minimum.</li>
                   <li>Jeśli w kampanii zostaną użyte dodatkowe zasady, zostaną opisane w osobnym dokumencie i udostępnione wszystkim graczom.</li>
+                  <li>Rozpiski można dopracowywać i zmieniać do końca 19 czerwca. Po tym czasie wszelkie zmiany nie będą dozwolone.</li>
+                  <li>Necromunda nie jest idealnie zbalansowanym systemem, dlatego prosimy graczy o zachowanie zdrowego rozsądku przy tworzeniu gangów. Nie chcemy nadmiernie ograniczać dostępnych zasad i opcji, ale zachęcamy do przygotowywania rozpisek klimatycznych, ciekawych i przyjemnych do gry dla obu stron, bez przesadnego wykorzystywania najmocniejszych kombinacji.</li>
+                  <li>Po zalockowaniu rozpisek organizatorzy dołożą wszelkich starań, aby zweryfikować ich zgodność z zasadami kampanii i obowiązującymi zasadami gry.</li>
                 </ol>
               </Section>
 
-              <Section title="8. Punktacja">
+              <Section title="8. Punktacja i rozgrywki">
                 <ol className="text-[#6e757c] text-[18px] leading-[28px] list-decimal pl-6 space-y-1" style={bodyStyle}>
                   <li>Wyniki kampanii będą prowadzone w Munda Managerze i określane wedle zasad kampanii Dominion.</li>
                   <li>
@@ -146,7 +150,10 @@ export function RegulaminPage() {
                     <br />- 2 pkt — dla gracza gotowego do gry, jeśli przeciwnik nie rozegrał meczu.
                   </li>
                   <li>Dodatkowo liczone będą kille / fragi.</li>
-                  <li>Kille / fragi mogą być używane jako tie-breaker w przypadku remisu punktowego.</li>
+                  <li>Kille / fragi mogą być używane jako tie-breaker w przypadku remisu punktowego dlatego zaleca się ich odnotowywanie.</li>
+                  <li>Po każdej grze należy dodać Battle Report w Munda Managerze oraz w polu tekstowym dostępnym dla dodatkowej treści opisu zapisać fragi (ilość modeli Out of Action dla każdej ze stron) które każdy z graczy zdobył.</li>
+                  <li>Po zakończonej kampanii będą nadawane wyróżnienia (Triumphs) należne graczom którzy je osiągnęli.</li>
+                  <li>Głównym zwycięzcą zostanie gracz, który wygra najwięcej gier głównych wynikających. Misje/rozgrywki dodatkowe (np. Rescue Mission itp) nie będą przy tym uwzględniane.</li>
                 </ol>
               </Section>
 
@@ -183,6 +190,7 @@ export function RegulaminPage() {
                   <li>Podczas rozgrywki może nie być czasu na pełne tłumaczenie wszystkich zasad od podstaw.</li>
                   <li>Gracze powinni znać podstawowe mechaniki swojej frakcji, broni i gangu.</li>
                   <li>Kampania wykorzystuje standardowe mechaniki wspierające słabsze gangi, np. House Favours.</li>
+                  <li>Organizatorzy dołożą wszelkich starań aby nowi/niedoświadczeni gracze byli w początkowych fazach dobierani w pary z “Mentorami”, czyli graczami którzy będą służyć wsparciem w pierwszych grach i wprowadzą w klimat świata gry.</li>
                 </ol>
               </Section>
 
@@ -204,6 +212,7 @@ export function RegulaminPage() {
                   </li>
                   <li>Informacje publikowane na głównym kanale kampanii są traktowane jako oficjalne informacje organizacyjne.</li>
                   <li>Gracz powinien śledzić główny kanał kampanii, aby być na bieżąco z rundami, terminami i decyzjami organizacyjnymi.</li>
+                  <li>Do momentu startu pierwszej rundy kampanii, a także w wyjątkowych sytuacjach i w jej trakcie, mogą być wysyłane wiadomości z ważnymi komunikatami organizacyjnymi na adresy email wpisane przez graczy podczas rejestracji.</li>
                 </ol>
               </Section>
 
