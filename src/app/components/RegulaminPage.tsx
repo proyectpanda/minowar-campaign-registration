@@ -153,7 +153,7 @@ export function RegulaminPage() {
                   <li>Kille / fragi mogą być używane jako tie-breaker w przypadku remisu punktowego dlatego zaleca się ich odnotowywanie.</li>
                   <li>Po każdej grze należy dodać Battle Report w Munda Managerze oraz w polu tekstowym dostępnym dla dodatkowej treści opisu zapisać fragi (ilość modeli Out of Action dla każdej ze stron) które każdy z graczy zdobył.</li>
                   <li>Po zakończonej kampanii będą nadawane wyróżnienia (Triumphs) należne graczom którzy je osiągnęli.</li>
-                  <li>Głównym zwycięzcą zostanie gracz, który wygra najwięcej gier głównych wynikających. Misje/rozgrywki dodatkowe (np. Rescue Mission itp) nie będą przy tym uwzględniane.</li>
+                  <li>Głównym zwycięzcą zostanie gracz, który wygra najwięcej gier głównych. Misje/rozgrywki dodatkowe (np. Rescue Mission itp) nie będą przy tym uwzględniane.</li>
                 </ol>
               </Section>
 
