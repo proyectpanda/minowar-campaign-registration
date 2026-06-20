@@ -76,18 +76,44 @@ button[form="registration-form"] > span:last-child {
     line-height: 1.4;
   }
 
+  /* Make the campaign logo slightly smaller so it clears the background artwork on mobile. */
+  div:has(> #registration-form) > h1 > span:nth-child(1),
+  div:has(> #registration-form) > h1 > span:nth-child(3) {
+    font-size: 48px !important;
+  }
+
+  div:has(> #registration-form) > h1 > span:nth-child(2) {
+    font-size: 64px !important;
+  }
+
   button[form="registration-form"] {
     width: 100%;
     min-width: 0;
-    padding-left: 68px !important;
-    padding-right: 68px !important;
+    min-height: 104px !important;
+    height: auto !important;
+    padding: 16px 72px !important;
+  }
+
+  button[form="registration-form"]::after {
+    content: "++ ACCESS\A TERMINATED ++";
+    display: block;
+    font-size: 22px;
+    line-height: 0.95;
+    text-align: center;
+    white-space: pre-line;
+  }
+
+  button[form="registration-form"] > span:first-child,
+  button[form="registration-form"] > span:last-child {
+    width: 34px !important;
+    height: 34px !important;
   }
 
   button[form="registration-form"] > span:first-child {
-    left: 22px;
+    left: 20px;
   }
 
   button[form="registration-form"] > span:last-child {
-    right: 22px;
+    right: 20px;
   }
 }
