@@ -1,0 +1,86 @@
+/*
+ * Temporary campaign status layout.
+ * The original registration form and CTA remain unchanged in DolaczPage.tsx.
+ * To reopen registrations for a future edition, remove the import of this file
+ * from src/styles/index.css.
+ */
+
+#registration-form {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 32px;
+}
+
+#registration-form > * {
+  display: none !important;
+}
+
+#registration-form::before {
+  content: "++ INCOMING VOX TRANSMISSION ++\A++ ORIGIN: GREAT WARSAW CAMPAIGN NODE ++\A\A//ATTENTION HIVE CITIZENRY\A//CAMPAIGN STATUS: ACTIVE\A//ROUND ONE PREPARATIONS NOW IN PROGRESS\A//ALL PRIMARY SYSTEMS RESPONDING\A\A//EMBARKATION COUNT: 35 REGISTERED SOULS\A//GANG MANIFESTS LOCKED AND PROCESSING\A//PARTICIPANT RECORDS: CLASSIFIED\A\A//VOX RELAYS OPEN\A//TACTICAL BRIEFINGS UNDERWAY\A//PAIRING ENGINES ENGAGED\A//SCENARIO PROTOCOLS LOADING\A//CAMPAIGN SHIP HAS DEPARTED DOCK\A\A//UNDERHIVE OPERATION IN PROGRESS\A//NO FURTHER BOARDING AUTHORIZED\A//ALL HANDS REPORT TO BATTLE STATIONS\A\A== END TRANSMISSION ==";
+  display: block;
+  color: #6E757C;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+button[form="registration-form"] {
+  position: relative;
+  min-width: 294px;
+  gap: 0 !important;
+  cursor: default;
+  pointer-events: none;
+  background-image: linear-gradient(to top, #2B2B2B, #58595B) !important;
+  font-size: 0 !important;
+}
+
+button[form="registration-form"]::after {
+  content: "++ ACCESS TERMINATED ++";
+  color: #F9F5F3;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+button[form="registration-form"] > span:first-child,
+button[form="registration-form"] > span:last-child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+button[form="registration-form"] > span:first-child {
+  left: 32px;
+}
+
+button[form="registration-form"] > span:last-child {
+  right: 32px;
+}
+
+@media (max-width: 767px) {
+  #registration-form {
+    max-width: 100%;
+  }
+
+  #registration-form::before {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  button[form="registration-form"] {
+    min-width: 0;
+  }
+
+  button[form="registration-form"] > span:first-child {
+    left: 22px;
+  }
+
+  button[form="registration-form"] > span:last-child {
+    right: 22px;
+  }
+}
