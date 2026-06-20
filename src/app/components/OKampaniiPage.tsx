@@ -51,7 +51,7 @@ export function OKampaniiPage() {
                 </p>
               </Section>
 
-              <Section title="Organizatorzy">
+              <Section title="Organizatorzy i partnerzy">
                 <p className="text-[#6e757c] text-[18px] leading-[28px] mb-6" style={bodyStyle}>
                   Poniżej macie logosy organizatorów. Każdy z właścicieli danej bazy w której grać będziemy szefuje lokalnie. Także w razie jakiś zapytań czy sporów, to oni służą pomocą.
                 </p>
@@ -90,6 +90,11 @@ export function OKampaniiPage() {
                       className="h-[120px] w-[120px] object-contain"
                     />
                   </a>
+                  <img
+                    src="/lootpile-logo.svg"
+                    alt="LootPile.eu"
+                    className="h-[120px] w-[160px] object-contain"
+                  />
                 </div>
               </Section>
 
