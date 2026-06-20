@@ -2,6 +2,7 @@
 @import './tailwind.css';
 @import './theme.css';
 @import './campaign-mobile.css';
+@import './campaign-partners.css';
 
 /* Remove this import to restore the original registration form and CTA. */
 @import './campaign-registration-closed.css';
