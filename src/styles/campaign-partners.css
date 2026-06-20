@@ -1,0 +1,37 @@
+/* Campaign partners displayed on the landing page. */
+
+section.px-6.lg\:px-16.pt-8.pb-16.text-center > h2 {
+  font-size: 0 !important;
+}
+
+section.px-6.lg\:px-16.pt-8.pb-16.text-center > h2::after {
+  content: "ORGANIZATORZY I PARTNERZY";
+  display: inline-block;
+  color: #0d0d0e;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+section.px-6.lg\:px-16.pt-8.pb-16.text-center > div.mt-10.flex.flex-wrap.items-center.justify-center.gap-10.sm\:gap-16::after {
+  content: "";
+  display: block;
+  flex: 0 0 160px;
+  width: 160px;
+  height: 120px;
+  background: url("/lootpile-logo.svg") center / contain no-repeat;
+}
+
+@media (max-width: 639px) {
+  section.px-6.lg\:px-16.pt-8.pb-16.text-center > h2::after {
+    font-size: 40px;
+    line-height: 0.95;
+  }
+
+  section.px-6.lg\:px-16.pt-8.pb-16.text-center > div.mt-10.flex.flex-wrap.items-center.justify-center.gap-10.sm\:gap-16::after {
+    flex-basis: 140px;
+    width: 140px;
+    height: 105px;
+  }
+}
