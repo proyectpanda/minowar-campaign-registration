@@ -29,7 +29,10 @@
 
 button[form="registration-form"] {
   position: relative;
-  min-width: 294px;
+  width: min(100%, 420px);
+  min-width: 390px;
+  padding-left: 76px !important;
+  padding-right: 76px !important;
   gap: 0 !important;
   cursor: default;
   pointer-events: none;
@@ -45,6 +48,7 @@ button[form="registration-form"]::after {
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 button[form="registration-form"] > span:first-child,
@@ -55,11 +59,11 @@ button[form="registration-form"] > span:last-child {
 }
 
 button[form="registration-form"] > span:first-child {
-  left: 32px;
+  left: 34px;
 }
 
 button[form="registration-form"] > span:last-child {
-  right: 32px;
+  right: 34px;
 }
 
 @media (max-width: 767px) {
@@ -73,7 +77,10 @@ button[form="registration-form"] > span:last-child {
   }
 
   button[form="registration-form"] {
+    width: 100%;
     min-width: 0;
+    padding-left: 68px !important;
+    padding-right: 68px !important;
   }
 
   button[form="registration-form"] > span:first-child {
