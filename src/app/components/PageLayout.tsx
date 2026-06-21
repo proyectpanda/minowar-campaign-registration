@@ -1,6 +1,23 @@
 import { ReactNode, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
 
+const roundOneTerritories = [
+  "Needle Ways",
+  "Mine Workings",
+  "Wastes",
+  "Rogue Doc Shop",
+  "Refuse Drift",
+  "Fighting Pit",
+  "Tunnels",
+  "Sludge Sea",
+  "Old Ruins",
+  "Tech Bazaar",
+  "Drinking Hole",
+  "Smelting Works",
+];
+
+const reportGridClass = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6";
+
 export function PageLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
     const organizerHeadings = Array.from(document.querySelectorAll("h2")).filter((heading) => {
@@ -37,6 +54,37 @@ export function PageLayout({ children }: { children: ReactNode }) {
         logo.className = "h-[120px] w-[160px] object-contain";
         partnerLink.append(logo);
         logoGrid.append(partnerLink);
+      }
+    });
+
+    if (window.location.pathname !== "/raporty") return;
+
+    const reportTable = document.querySelector<HTMLElement>("section.overflow-x-auto > div");
+    if (!reportTable || reportTable.dataset.territoriesEnhanced === "true") return;
+
+    reportTable.dataset.territoriesEnhanced = "true";
+    reportTable.className = "min-w-[1120px]";
+
+    const header = reportTable.firstElementChild as HTMLElement | null;
+    const rowsContainer = reportTable.lastElementChild as HTMLElement | null;
+    if (!header || !rowsContainer) return;
+
+    header.className = `${reportGridClass} px-4 py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`;
+    header.innerHTML = "<span>Gracze</span><span>Gangi</span><span>Terytoria</span><span>Wynik</span>";
+
+    Array.from(rowsContainer.children).forEach((row, index) => {
+      const rowElement = row as HTMLElement;
+      rowElement.className = `${reportGridClass} items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`;
+
+      const resultColumn = rowElement.lastElementChild;
+      const territory = document.createElement("p");
+      territory.className = "uppercase text-[#00378d]";
+      territory.textContent = roundOneTerritories[index] ?? "";
+
+      if (resultColumn) {
+        rowElement.insertBefore(territory, resultColumn);
+      } else {
+        rowElement.append(territory);
       }
     });
   }, []);
