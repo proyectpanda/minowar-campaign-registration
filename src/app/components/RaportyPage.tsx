@@ -90,6 +90,12 @@ export function RaportyPage() {
                   <p>Pod nią czeka głód. Chciwość. Strach. I wojna.</p>
                   <p>Nie będzie tu bohaterów. Będą tylko ci, którzy przeżyją wystarczająco długo, by nazwać siebie zwycięzcami.</p>
                 </div>
+
+                <p className="self-stretch text-[32px] font-semibold leading-[normal] text-[#1c3b56]" style={labelStyle}>
+                  Scenariusz: Tunnel Skirmish / Stand-off
+                  <br />
+                  Termin 1 rundy: 22.06-05.07
+                </p>
               </section>
 
               <section className="overflow-x-auto">
