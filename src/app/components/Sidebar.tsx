@@ -9,6 +9,7 @@ export const navigationItems = [
   { label: "Zasady", path: "/zasady" },
   { label: "Regulamin", path: "/regulamin" },
   { label: "Gracze", path: "/gracze" },
+  { label: "Raporty", path: "/raporty" },
 ];
 
 export function Sidebar() {
