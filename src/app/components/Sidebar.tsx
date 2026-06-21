@@ -6,6 +6,7 @@ import skullIcon from "../../imports/Skull-1.svg?raw";
 export const navigationItems = [
   { label: "Dołącz", path: "/dolacz" },
   { label: "O kampanii", path: "/kampania" },
+  { label: "Zasady", path: "/zasady" },
   { label: "Regulamin", path: "/regulamin" },
   { label: "Gracze", path: "/gracze" },
 ];
