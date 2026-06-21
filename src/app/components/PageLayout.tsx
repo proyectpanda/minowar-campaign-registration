@@ -2,17 +2,17 @@ import { ReactNode, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
 
 const roundOneTerritories = [
+  "Wastes",
+  "Slag Furnace",
+  "Rogue Doc Shop",
   "Needle Ways",
   "Mine Workings",
-  "Wastes",
-  "Rogue Doc Shop",
-  "Refuse Drift",
-  "Fighting Pit",
+  "Synth Still",
+  "Stinger Mould Sprawl",
   "Tunnels",
-  "Sludge Sea",
-  "Old Ruins",
+  "Generatorium",
   "Tech Bazaar",
-  "Drinking Hole",
+  "Narco Den",
   "Smelting Works",
 ];
 
