@@ -75,7 +75,7 @@ export function RaportyPage() {
                 </h2>
 
                 <img
-                  src="/gwc01.svg"
+                  src="/GWC01.jpg"
                   alt="Wędrowcy zmierzający ku młodemu kopcowi Great Warsaw Campaign"
                   className="w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover"
                 />
