@@ -1,0 +1,83 @@
+import { PageLayout } from "./PageLayout";
+import { motion } from "motion/react";
+import necromundaLogo from "@/imports/Necromunda.b64";
+
+type Result = "win" | "lose";
+type Match = { playerOne: string; gangOne: string; houseOne: string; playerTwo: string; gangTwo: string; houseTwo: string; territory: string; resultOne?: Result; resultTwo?: Result };
+
+const matches: Match[] = [
+  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Billiskner", gangTwo: "Precinct 139513", houseTwo: "Enforcers", territory: "Needle Ways" },
+  { playerOne: "Nahar", gangOne: "Femgaj Boyzz", houseOne: "Goliath", playerTwo: "BarTolomai", gangTwo: "Wastefarers", houseTwo: "Ash Waste Nomads", territory: "Mine Workings" },
+  { playerOne: "Piotr", gangOne: "Unit Four", houseOne: "Enforcers", playerTwo: "Magos Hehetek", gangTwo: "Brain Dancers", houseTwo: "Helot Chaos Cults", territory: "Wastes" },
+  { playerOne: "Werjan", gangOne: "Moxxi's phenomena menagerie waw", houseOne: "Escher", playerTwo: "metalfan", gangTwo: "The Neon Spectre", houseTwo: "Delaque", territory: "Rogue Doc Shop" },
+  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Toll", gangTwo: "Róże dla Agnes", houseTwo: "Goliath", territory: "Refuse Drift" },
+  { playerOne: "Marcin z Chmielu", gangOne: "Chains & Corsets", houseOne: "Escher", playerTwo: "Kastor", gangTwo: "Tactical Squadron Nimrod - Σ", houseTwo: "Enforcers", territory: "Fighting Pit" },
+  { playerOne: "stooopak", gangOne: "Chłopcy z Ośrodka (GWC)", houseOne: "Delaque", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Tunnels" },
+  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "Ildephonse", gangTwo: "Denim Demons", houseTwo: "Orlock", territory: "Sludge Sea" },
+  { playerOne: "Paul Formann", gangOne: "The Death Asterism", houseOne: "Spyre Hunters", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Old Ruins" },
+  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Blaz", gangTwo: "Fever Dream", houseTwo: "Van Saar", territory: "Tech Bazaar" },
+  { playerOne: "Telchar", gangOne: "Rad Queens", houseOne: "Escher", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Drinking Hole" },
+  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Kapisu", gangTwo: "Żelazne Gatory", houseTwo: "Goliath", territory: "Smelting Works" },
+];
+
+const lore = [
+  "Nowy Kopiec dopiero wyrasta z popiołów. Nad rozrastającymi się hab-blokami wiszą dźwigi, niedokończone wieże, a pod nimi tysiące robotników, osadników, kontraktorów i wyrzutków próbują wyrwać dla siebie kawałek przyszłości. Jedni przybyli tu pracować. Drudzy handlować. Większość po prostu liczy, że przeżyje wystarczająco długo, by nie umrzeć biednie. Na Necromundzie każda nowa osada jest obietnicą zysku. A każda obietnica zysku prędzej czy później kończy się trupem.",
+  "Pierwsze strzały i pierwsze ciała zaczęły znikać w odpływach, zsuwając się przez kanały i rozbite rury procesowe do toksycznych sumpów pod fundamentami kopca, tam, gdzie chemikalia żrą stal, a martwe mięso przestaje mieć imię.",
+  "Nowy kopiec przyciąga wielu różnych typów. Każdy chce pilnować swoich interesów: klany, pracowników kontraktowych, handlarzy, ochroniarzy i ambitnych liderów. Jednak znacznie szybciej zjawiają się ci, którzy nie chcą niczego budować. Różne gangi przybywają po magazyny, transporty, wodę, paliwo, chemy, broń i cudzy strach. Czasami łatwiej jest odebrać niż zapracować.",
+  "Z popielnych pustkowi nadchodzą także brudne bandy. Dla nich młody kopiec nie jest domem ani nadzieją. Jest raną w ziemi, którą można ograbić. Konwoje znikają na drogach, zwiadowcy wracają bez skóry, a ci, którzy widzieli zakapturzone sylwetki przesuwające się przez żółty pył, przestają spać przy wygaszonych światłach.",
+  "W cieniu niedokończonych faktoriów rosną też kulty. Fałszywi prorocy obiecują głodnym pracownikom przeżycie, przyjemności a także zbawienie. Rekrutują niezrzeszonych, zagubionych i tych, których nikt nie będzie szukał. Dają im maskę, broń i nowe imię. Potem każą klękać przed zmyślonymi bogami.",
+  "Palanite Enforcerzy próbują narzucić Kopcowi Pax Helmawr. Stawiają barykady, zamykają sektory, rozbijają zbiegowiska i każą wisieć pierwszym przykładowym trupom tam, gdzie wszyscy mogą je zobaczyć. Ale porządek w młodym kopcu jest tylko cienką warstwą farby położoną na zardzewiałym metalu.",
+  "Pod nią czeka głód. Chciwość. Strach. I wojna.",
+  "Nie będzie tu bohaterów. Będą tylko ci, którzy przeżyją wystarczająco długo, by nazwać siebie zwycięzcami.",
+];
+
+const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
+const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
+const columns = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
+
+export function RaportyPageV2() {
+  return (
+    <PageLayout>
+      <div className="relative overflow-hidden">
+        <section className="relative px-6 lg:px-16 pt-10 lg:pt-16 pb-16">
+          <motion.img initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} src={necromundaLogo} alt="Necromunda" className="absolute left-1/2 -translate-x-1/2 top-4 lg:left-auto lg:translate-x-0 lg:right-[80px] lg:top-8 w-[300px] max-w-[40%] z-10" />
+          <div className="relative z-10 max-w-[1640px] mr-auto ml-[max(0px,min(calc((100%-1640px)/2),200px))]">
+            <motion.h1 initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="uppercase font-semibold leading-[normal] text-[#0d0d0e] text-[80px] sm:text-[120px] mb-10 mt-[57px] lg:mt-0" style={labelStyle}>Raporty</motion.h1>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }} className="space-y-10">
+              <section className="space-y-6">
+                <h2 className="text-[#1c3b56] text-[32px] font-semibold leading-[normal]" style={labelStyle}>Runda 1 - Początek.</h2>
+                <img src="/GWC01.jpg" alt="Wędrowcy zmierzający ku młodemu kopcowi Great Warsaw Campaign" className="w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover" />
+                <div className="space-y-1 text-[#6e757c] text-[18px] leading-[28px]" style={bodyStyle}>{lore.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+              </section>
+              <section className="overflow-x-auto">
+                <div className="min-w-[1120px]">
+                  <div className={`grid ${columns} gap-6 px-4 py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`} style={labelStyle}>
+                    <span>Gracze</span><span>Gangi</span><span>Terytoria</span><span>Wynik</span>
+                  </div>
+                  <div>{matches.map((match) => <MatchRow key={`${match.playerOne}-${match.playerTwo}`} match={match} />)}</div>
+                </div>
+              </section>
+            </motion.div>
+          </div>
+        </section>
+        <div className="border-t border-[#bebdbc]"><p className="text-[#6e757c] text-[12px] text-center py-4 px-6 lg:px-16" style={{ fontFamily: '"Roboto Mono", monospace' }}>Necromunda and all associated logos, characters, names, and artwork are trademarks and/or copyrights of Games Workshop Ltd. This website and campaign are unofficial fan projects and are not endorsed by Games Workshop.</p></div>
+      </div>
+    </PageLayout>
+  );
+}
+
+function MatchRow({ match }: { match: Match }) {
+  return (
+    <div className={`grid ${columns} gap-6 items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`} style={labelStyle}>
+      <p><span className="uppercase text-[#00378d]">{match.playerOne}</span> <span className="text-[#0d0d0e]">vs</span> <span className="uppercase text-[#00378d]">{match.playerTwo}</span></p>
+      <p><span className="uppercase text-[#00378d]">{match.gangOne}</span> <span className="text-[#0d0d0e]">({match.houseOne}) vs </span><span className="uppercase text-[#00378d]">{match.gangTwo}</span> <span className="text-[#0d0d0e]">({match.houseTwo})</span></p>
+      <p className="uppercase text-[#00378d]">{match.territory}</p>
+      <div className="flex items-center gap-4 min-h-8">{match.resultOne && <ResultTag result={match.resultOne} />}{match.resultTwo && <ResultTag result={match.resultTwo} />}</div>
+    </div>
+  );
+}
+
+function ResultTag({ result }: { result: Result }) {
+  const win = result === "win";
+  return <span className={`inline-flex items-center justify-center min-w-12 h-8 px-2 rounded-md text-[16px] font-semibold uppercase text-white ${win ? "bg-[#00378d]" : "bg-[#6e757c]"}`} style={labelStyle}>{win ? "WIN" : "LOSE"}</span>;
+}
