@@ -17,6 +17,7 @@ const roundOneTerritories = [
 ];
 
 const reportGridClass = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6";
+const roundOneRewards = "Rewards: używany jest rewards z Tunnel Skirmish niezależnie od tego czy gra się rozgrywa w Tunelach czy na Zone Mortalis, czyli 2D6x10 dla wygranego, D3x5 dla przegranego i D6x10 dla każdego w przypadku remisu.";
 
 export function PageLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -58,6 +59,13 @@ export function PageLayout({ children }: { children: ReactNode }) {
     });
 
     if (window.location.pathname !== "/raporty") return;
+
+    const scenarioDetails = Array.from(document.querySelectorAll<HTMLParagraphElement>("p")).find((paragraph) => paragraph.textContent?.includes("Termin 1 rundy: 22.06-05.07"));
+    if (scenarioDetails && scenarioDetails.dataset.rewardsAdded !== "true") {
+      scenarioDetails.dataset.rewardsAdded = "true";
+      scenarioDetails.append(document.createElement("br"));
+      scenarioDetails.append(document.createTextNode(roundOneRewards));
+    }
 
     const reportTable = document.querySelector<HTMLElement>("section.overflow-x-auto > div");
     if (!reportTable || reportTable.dataset.territoriesEnhanced === "true") return;
