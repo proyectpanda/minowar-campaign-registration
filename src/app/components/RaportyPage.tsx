@@ -95,6 +95,8 @@ export function RaportyPage() {
                   Scenariusz: Tunnel Skirmish / Stand-off
                   <br />
                   Termin 1 rundy: 22.06-05.07
+                  <br />
+                  Rewards: używany jest rewards z Tunnel Skirmish niezależnie od tego czy gra się rozgrywa w Tunelach czy na Zone Mortalis, czyli 2D6x10 dla wygranego, D3x5 dla przegranego i D6x10 dla każdego w przypadku remisu.
                 </p>
               </section>
 
