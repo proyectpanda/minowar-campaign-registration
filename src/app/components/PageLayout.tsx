@@ -14,6 +14,7 @@ const roundOneTerritories = [
   "Tech Bazaar",
   "Narco Den",
   "Smelting Works",
+  "Archaeotech Device",
 ];
 
 const reportGridClass = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6";
@@ -68,6 +69,26 @@ export function PageLayout({ children }: { children: ReactNode }) {
     const header = reportTable.firstElementChild as HTMLElement | null;
     const rowsContainer = reportTable.lastElementChild as HTMLElement | null;
     if (!header || !rowsContainer) return;
+
+    if (!rowsContainer.querySelector("[data-extra-round-one-match]")) {
+      const extraRow = document.createElement("div");
+      extraRow.dataset.extraRoundOneMatch = "true";
+      extraRow.innerHTML = `
+        <p class="min-w-0">
+          <span class="uppercase text-[#00378d]">jj_wh40k</span>
+          <span class="text-[#0d0d0e]">vs</span>
+          <span class="uppercase text-[#00378d]">Adam1983</span>
+        </p>
+        <p class="min-w-0">
+          <span class="uppercase text-[#00378d]">N27</span>
+          <span class="text-[#0d0d0e]">(Van Saar) vs </span>
+          <span class="uppercase text-[#00378d]">Blades of Primus</span>
+          <span class="text-[#0d0d0e]">(Escher)</span>
+        </p>
+        <div class="flex items-center gap-4 min-h-8"></div>
+      `;
+      rowsContainer.append(extraRow);
+    }
 
     header.className = `${reportGridClass} px-4 py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`;
     header.innerHTML = "<span>Gracze</span><span>Gangi</span><span>Terytoria</span><span>Wynik</span>";
