@@ -17,7 +17,19 @@ const roundOneTerritories = [
   "Archaeotech Device",
 ];
 
+const roundOneResults: Record<number, ["win", "lose"]> = {
+  0: ["win", "lose"],
+  5: ["win", "lose"],
+};
+
 const reportGridClass = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6";
+
+function resultBadge(result: "win" | "lose") {
+  const isWin = result === "win";
+  const background = isWin ? "bg-[#00378d]" : "bg-[#6e757c]";
+  const label = isWin ? "WIN" : "LOSE";
+  return `<span class="inline-flex items-center justify-center min-w-12 h-8 px-2 rounded-md text-[16px] font-semibold uppercase text-white ${background}">${label}</span>`;
+}
 
 export function PageLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -97,13 +109,17 @@ export function PageLayout({ children }: { children: ReactNode }) {
       const rowElement = row as HTMLElement;
       rowElement.className = `${reportGridClass} items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`;
 
-      const resultColumn = rowElement.lastElementChild;
+      const resultColumn = rowElement.lastElementChild as HTMLElement | null;
       const territory = document.createElement("p");
       territory.className = "uppercase text-[#00378d]";
       territory.textContent = roundOneTerritories[index] ?? "";
 
       if (resultColumn) {
         rowElement.insertBefore(territory, resultColumn);
+        const results = roundOneResults[index];
+        if (results) {
+          resultColumn.innerHTML = results.map(resultBadge).join("");
+        }
       } else {
         rowElement.append(territory);
       }
