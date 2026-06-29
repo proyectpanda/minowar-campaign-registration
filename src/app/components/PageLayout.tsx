@@ -17,9 +17,12 @@ const roundOneTerritories = [
   "Archaeotech Device",
 ];
 
-const roundOneResults: Record<number, ["win", "lose"]> = {
+const roundOneResults: Record<number, ["win" | "lose", "win" | "lose"]> = {
   0: ["win", "lose"],
+  4: ["lose", "win"],
   5: ["win", "lose"],
+  6: ["lose", "win"],
+  12: ["lose", "win"],
 };
 
 const reportGridClass = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6";
