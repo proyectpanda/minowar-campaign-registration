@@ -97,7 +97,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
         </p>
         <p class="min-w-0">
           <span class="uppercase text-[#00378d]">N27</span>
-          <span class="text-[#0d0e]">(Van Saar) vs </span>
+          <span class="text-[#0d0d0e]">(Van Saar) vs </span>
           <span class="uppercase text-[#00378d]">Blades of Primus</span>
           <span class="text-[#0d0d0e]">(Escher)</span>
         </p>
