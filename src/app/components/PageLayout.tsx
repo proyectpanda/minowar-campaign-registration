@@ -22,6 +22,7 @@ const roundOneResults: Record<number, ["win" | "lose", "win" | "lose"]> = {
   4: ["lose", "win"],
   5: ["win", "lose"],
   6: ["lose", "win"],
+  7: ["win", "lose"],
   12: ["lose", "win"],
 };
 
@@ -96,7 +97,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
         </p>
         <p class="min-w-0">
           <span class="uppercase text-[#00378d]">N27</span>
-          <span class="text-[#0d0d0e]">(Van Saar) vs </span>
+          <span class="text-[#0d0e]">(Van Saar) vs </span>
           <span class="uppercase text-[#00378d]">Blades of Primus</span>
           <span class="text-[#0d0d0e]">(Escher)</span>
         </p>
