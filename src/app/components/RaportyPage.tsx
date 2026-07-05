@@ -115,6 +115,27 @@ export function RaportyPage() {
                   </div>
                 </div>
               </section>
+
+              <section className="space-y-6 pt-6">
+                <h2 className="text-[#1c3b56] text-[32px] font-semibold leading-[normal]" style={labelStyle}>
+                  Runda 2 - Nowe porządki.
+                </h2>
+
+                <img
+                  src="/runda02.png"
+                  alt="Walka o władzę w sektorach nowego Kopca"
+                  className="w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover"
+                />
+
+                <div className="space-y-1 text-[#6e757c] text-[18px] leading-[28px]" style={bodyStyle}>
+                  <p>Pierwsze dni wojny skończyły się szybciej, niż ktokolwiek w administracji przewidywał. Niedokończone sektory już mają swoich właścicieli, a ich granice wyznaczają nie mapy i akty własności, lecz wypalone ślady po plazmie, porzucone łuski i ciała spływające kanałami ku sumpom.</p>
+                  <p>Escherki przejęły inicjatywę. Ich bandy pojawiają się wszędzie: w tunelach, na targowiskach, przy magazynach i w cieniu świeżo postawionych faktoriów. Prawie każdy, kto stanął im na drodze, został rozbity, przepędzony albo zostawiony na zimnych kratownicach. Zdobyły cenny Archaeotech Device, przejęły tunel z leczniczym grzybem i dały całemu Kopcowi jasny sygnał: to one jako pierwsze zrozumiały, że tu nie chodzi o przetrwanie. Tu chodzi o dominację.</p>
+                  <p>Nie tylko one ruszyły po władzę. Spaczone bandy Chaosu przedarły się do wnętrza osady, przynosząc ze sobą rytuały, rzeź i obietnice siły dla każdego, kto jest dość głodny, zdesperowany albo głupi, by ich słuchać. W miejscach, gdzie jeszcze niedawno pracownicy składali konstrukcje pod nowe hab-bloki, teraz pojawiają się znaki wymalowane krwią i stosy ciał, których nikt nie chce zabierać.</p>
+                  <p>Van Saarowie zdołali wyrwać dla siebie Smelting Works, ale ich technologiczna przewaga nie ochroniła ich na innych frontach. Goliathy także pokazali, że są gotowi rozbijać wszystko, czego nie mogą przesunąć siłą mięśni. Każda huta, generator, bazar i zapomniany fragment archeotechnologii staje się teraz punktem zapalnym.</p>
+                  <p>A Enforcerzy zawiedli. Zamiast zdusić przemoc w zarodku, zostali upokorzeni, rozproszeni i zmuszeni do odwrotu. Ich odznaki nie budzą jeszcze strachu, a Pax Helmawr brzmi w Kopcu jak pusty slogan. Władze będą musiały zmienić strategię. Patrole i ostrzeżenia nie wystarczą.</p>
+                  <p>Kopiec nie jest już placem budowy. Stał się polem łowieckim.</p>
+                </div>
+              </section>
             </motion.div>
           </div>
         </section>
