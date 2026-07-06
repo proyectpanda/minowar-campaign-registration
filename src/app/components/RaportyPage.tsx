@@ -15,6 +15,10 @@ type Match = {
   resultTwo?: Result;
 };
 
+type RoundTwoMatch = Omit<Match, "resultOne" | "resultTwo"> & {
+  territory: string;
+};
+
 const roundOneMatches: Match[] = [
   { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Billiskner", gangTwo: "Precinct 139513", houseTwo: "Enforcers" },
   { playerOne: "Nahar", gangOne: "Femgaj Boyzz", houseOne: "Goliath", playerTwo: "BarTolomai", gangTwo: "Wastefarers", houseTwo: "Ash Waste Nomads" },
@@ -30,6 +34,22 @@ const roundOneMatches: Match[] = [
   { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Kapisu", gangTwo: "Żelazne Gatory", houseTwo: "Goliath" },
 ];
 
+const roundTwoMatches: RoundTwoMatch[] = [
+  { playerOne: "stooopak", gangOne: "Chłopcy z Ośrodka (GWC)", houseOne: "Delaque", playerTwo: "Billiskner", gangTwo: "Precinct 139513", houseTwo: "Enforcers", territory: "Needle Ways" },
+  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Ildephonse", gangTwo: "Denim Demons", houseTwo: "Orlock", territory: "Toll Crossing" },
+  { playerOne: "BarTolomai", gangOne: "Wastefarers", houseOne: "Ash Waste Nomads", playerTwo: "Piotr", gangTwo: "Unit Four", houseTwo: "Enforcers", territory: "Old Ruins" },
+  { playerOne: "Kastor", gangOne: "Tactical Squadron Nimrod - Sigma", houseOne: "Enforcers", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Promethium Cache" },
+  { playerOne: "Blaz", gangOne: "Fever Dream", houseOne: "Van Saar", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Sludge Sea" },
+  { playerOne: "jj_wh40k", gangOne: "N27", houseOne: "Van Saar", playerTwo: "Werjan", gangTwo: "Moxxi's phenomena menagerie waw", houseTwo: "Escher", territory: "Workshop" },
+  { playerOne: "Toll", gangOne: "Róże dla Agnes", houseOne: "Goliath", playerTwo: "Kapisu", gangTwo: "Żelazne Gatory", houseTwo: "Goliath", territory: "Fighting Pit" },
+  { playerOne: "Magos Hehetek", gangOne: "Brain Dancers", houseOne: "Helot Chaos Cults", playerTwo: "ProjectPanda", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts", territory: "Refuse Drift" },
+  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Ender", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors", territory: "Corpse Farm" },
+  { playerOne: "metalfan", gangOne: "The Neon Spectre", houseOne: "Delaque", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Drinking Hole" },
+  { playerOne: "Marcin z Chmielu", gangOne: "Chains & Corsets", houseOne: "Escher", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Collapsed Dome" },
+  { playerOne: "Telchar", gangOne: "Rad Queens", houseOne: "Escher", playerTwo: "Paul Formann", gangTwo: "The Death Asterism", houseTwo: "Spyre Hunters", territory: "Bone Shrine" },
+  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Adam1983", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "Gambling Den" },
+];
+
 const labelStyle = {
   fontFamily: '"Barlow Condensed", sans-serif',
 };
@@ -37,6 +57,8 @@ const labelStyle = {
 const bodyStyle = {
   fontFamily: '"Roboto Condensed", system-ui, sans-serif',
 };
+
+const roundTwoGrid = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
 
 export function RaportyPage() {
   return (
@@ -135,6 +157,29 @@ export function RaportyPage() {
                   <p>A Enforcerzy zawiedli. Zamiast zdusić przemoc w zarodku, zostali upokorzeni, rozproszeni i zmuszeni do odwrotu. Ich odznaki nie budzą jeszcze strachu, a Pax Helmawr brzmi w Kopcu jak pusty slogan. Władze będą musiały zmienić strategię. Patrole i ostrzeżenia nie wystarczą.</p>
                   <p>Kopiec nie jest już placem budowy. Stał się polem łowieckim.</p>
                 </div>
+
+                <p className="self-stretch text-[32px] font-semibold leading-[normal] text-[#1c3b56]" style={labelStyle}>
+                  Scenariusz: Border Dispute
+                  <br />
+                  Termin 2 rundy: 06.07-19.07
+                </p>
+              </section>
+
+              <section className="overflow-x-auto">
+                <div className="min-w-[1120px]">
+                  <div className={`grid ${roundTwoGrid} gap-6 px-4 py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`} style={labelStyle}>
+                    <span>Gracze</span>
+                    <span>Gangi</span>
+                    <span>Terytoria</span>
+                    <span>Wynik</span>
+                  </div>
+
+                  <div>
+                    {roundTwoMatches.map((match) => (
+                      <RoundTwoMatchRow key={`${match.playerOne}-${match.playerTwo}`} match={match} />
+                    ))}
+                  </div>
+                </div>
               </section>
             </motion.div>
           </div>
@@ -170,6 +215,29 @@ function MatchRow({ match }: { match: Match }) {
         {match.resultOne && <ResultTag result={match.resultOne} />}
         {match.resultTwo && <ResultTag result={match.resultTwo} />}
       </div>
+    </div>
+  );
+}
+
+function RoundTwoMatchRow({ match }: { match: RoundTwoMatch }) {
+  return (
+    <div className={`grid ${roundTwoGrid} gap-6 items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`} style={labelStyle}>
+      <p className="min-w-0">
+        <span className="uppercase text-[#00378d]">{match.playerOne}</span>{" "}
+        <span className="text-[#0d0d0e]">vs</span>{" "}
+        <span className="uppercase text-[#00378d]">{match.playerTwo}</span>
+      </p>
+
+      <p className="min-w-0">
+        <span className="uppercase text-[#00378d]">{match.gangOne}</span>{" "}
+        <span className="text-[#0d0d0e]">({match.houseOne}) vs </span>
+        <span className="uppercase text-[#00378d]">{match.gangTwo}</span>{" "}
+        <span className="text-[#0d0d0e]">({match.houseTwo})</span>
+      </p>
+
+      <p className="uppercase text-[#00378d]">{match.territory}</p>
+
+      <div className="min-h-8" />
     </div>
   );
 }
