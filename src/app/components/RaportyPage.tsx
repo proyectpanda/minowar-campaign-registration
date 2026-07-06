@@ -122,7 +122,7 @@ export function RaportyPage() {
                 </h2>
 
                 <img
-                  src="/runda02.png"
+                  src="/runda02.jpg"
                   alt="Walka o władzę w sektorach nowego Kopca"
                   className="w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover"
                 />
