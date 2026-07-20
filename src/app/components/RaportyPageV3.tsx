@@ -47,6 +47,22 @@ const roundTwoMatches: Match[] = [
   { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Adam1983", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "Gambling Den", resultOne: "win", resultTwo: "lose" },
 ];
 
+const roundThreeMatches: Match[] = [
+  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Manufactorum Level" },
+  { playerOne: "Toll", gangOne: "Róże dla Agnes", houseOne: "Goliath", playerTwo: "Paul Formann", gangTwo: "The Death Asterism", houseTwo: "Spyre Hunters", territory: "Slave Pits" },
+  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Adam1983", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "Wall Outpost" },
+  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Reclamation Zone" },
+  { playerOne: "LosAntos", gangOne: "Żelazne Kufle", houseOne: "Ironhead Squat Prospectors", playerTwo: "Blaz", gangTwo: "Fever Dream", houseTwo: "Van Saar", territory: "Guilder Stronghold" },
+  { playerOne: "Magos Hehetek", gangOne: "Brain Dancers", houseOne: "Helot Chaos Cults", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Chaos Fane" },
+  { playerOne: "Piotr", gangOne: "Unit Four", houseOne: "Enforcers", playerTwo: "Telchar", gangTwo: "Rad Queens", houseTwo: "Escher", territory: "Underhive Shrine" },
+  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Marcin z Chmielu", gangTwo: "Chains & Corsets", houseTwo: "Escher", territory: "Fungal Sprawl" },
+  { playerOne: "Billiskner", gangOne: "Precinct 139513", houseOne: "Enforcers", playerTwo: "metalfan", gangTwo: "The Neon Spectre", houseTwo: "Delaque", territory: "Hab Level" },
+  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Werjan", gangTwo: "Moxxi's phenomena menagerie waw", houseTwo: "Escher", territory: "Thermal Vent" },
+  { playerOne: "Ildephonse", gangOne: "Denim Demons", houseOne: "Orlock", playerTwo: "stooopak", gangTwo: "Chłopcy z Ośrodka (GWC)", houseTwo: "Delaque", territory: "Wastelands" },
+  { playerOne: "Kastor", gangOne: "Tactical Squadron Nimrod - Σ", houseOne: "Enforcers", playerTwo: "BarTolomai", gangTwo: "Wastefarers", houseTwo: "Ash Waste Nomads", territory: "Toll Crossing" },
+  { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Ash Gate" },
+];
+
 const roundOneLore = [
   "Nowy Kopiec dopiero wyrasta z popiołów. Nad rozrastającymi się hab-blokami wiszą dźwigi, niedokończone wieże, a pod nimi tysiące robotników, osadników, kontraktorów i wyrzutków próbują wyrwać dla siebie kawałek przyszłości. Jedni przybyli tu pracować. Drudzy handlować. Większość po prostu liczy, że przeżyje wystarczająco długo, by nie umrzeć biednie. Na Necromundzie każda nowa osada jest obietnicą zysku. A każda obietnica zysku prędzej czy później kończy się trupem.",
   "Pierwsze strzały i pierwsze ciała zaczęły znikać w odpływach, zsuwając się przez kanały i rozbite rury procesowe do toksycznych sumpów pod fundamentami kopca, tam, gdzie chemikalia żrą stal, a martwe mięso przestaje mieć imię.",
@@ -67,6 +83,12 @@ const roundTwoLore = [
   "Kopiec nie jest już placem budowy. Stał się polem łowieckim.",
 ];
 
+const roundThreeLore = [
+  "Gangi rozrosły się szybciej niż sam Kopiec. Kolejne tunele, hale i magazyny dostały nowych właścicieli, a granice wpływów zaczęły przesuwać się z każdym strzałem. To, co jeszcze niedawno było ziemią niczyją, dziś nosi barwy gangów, znaki ostrzegawcze i ciała tych, którzy nie zrozumieli ich znaczenia.",
+  "Wraz z rosnącą potęgą nowych władców zaczęły jednak krążyć plotki o pierwszych osadnikach. Podobno opuścili Kopiec w panice, pozostawiając za sobą całe składy wyposażenia, zapasy, broń i wartościowe ładunki. Nie wszystko zdążyli zabrać. Część ukryli w starych tunelach transportowych, pod zawalonymi habami. Teraz gangi ruszają w dół. Zardzewiałe włazy zostają wyważone, zapomniane przejścia ponownie otwarte, a martwe tunele wypełnia światło latarek i trzask odbezpieczanej broni. Każda odnaleziona skrzynia może zawierać fortunę. Każdy cień może skrywać rywala, pułapkę albo coś, co przetrwało tam znacznie dłużej niż pierwsi osadnicy.",
+  "Tymczasem Enforcerzy nie zamierzają po raz kolejny patrzeć, jak Kopiec wymyka im się z rąk. W ostatnich cyklach widziano ich patrole w pobliżu Generatoriów Głównej Sieci i stacji rozdzielczych zasilających niższe sektory. Administracja mówi o kontroli infrastruktury i pracach zabezpieczających. Mieszkańcy szepczą jednak o kontrolowanych odcięciach energii, bo dzięki temu łatwiej będzie uporać się z gangami.",
+];
+
 const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
 const tableGrid = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
@@ -84,6 +106,8 @@ export function RaportyPageV3() {
               <ReportsTable matches={roundOneMatches} />
               <RoundSection title="Runda 2 - Nowe porządki." image="/runda02.jpg" imageAlt="Walka o władzę w sektorach nowego Kopca" lore={roundTwoLore} info={<><span>Scenariusz: Border Dispute</span><br /><span>Termin 2 rundy: 06.07-19.07</span></>} />
               <ReportsTable matches={roundTwoMatches} />
+              <RoundSection title="Runda 3 - Cień nieobecnych." image="/Tunnels.png" imageAlt="Gangi przeszukujące zapomniane tunele Kopca" lore={roundThreeLore} info={<><span>Scenariusz: Forgotten Riches</span><br /><span>Terrain: Tunnels of Zone Mortalis (7 tiles - 1 floor)</span><br /><span>Termin 3 rundy: 20.07-02.08</span></>} />
+              <ReportsTable matches={roundThreeMatches} />
             </motion.div>
           </div>
         </section>
