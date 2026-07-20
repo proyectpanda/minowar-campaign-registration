@@ -48,9 +48,9 @@ const roundTwoMatches: Match[] = [
 ];
 
 const roundThreeMatches: Match[] = [
-  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Manufactorum Level" },
+  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Manufactorum Level" },
   { playerOne: "Toll", gangOne: "Róże dla Agnes", houseOne: "Goliath", playerTwo: "Paul Formann", gangTwo: "The Death Asterism", houseTwo: "Spyre Hunters", territory: "Slave Pits" },
-  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Adam1983", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "Wall Outpost" },
+  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Wall Outpost" },
   { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Reclamation Zone" },
   { playerOne: "LosAntos", gangOne: "Żelazne Kufle", houseOne: "Ironhead Squat Prospectors", playerTwo: "Blaz", gangTwo: "Fever Dream", houseTwo: "Van Saar", territory: "Guilder Stronghold" },
   { playerOne: "Magos Hehetek", gangOne: "Brain Dancers", houseOne: "Helot Chaos Cults", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Chaos Fane" },
