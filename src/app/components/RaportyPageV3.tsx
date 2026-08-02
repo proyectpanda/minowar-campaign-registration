@@ -63,6 +63,8 @@ const roundThreeMatches: Match[] = [
   { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Ash Gate", resultOne: "lose", resultTwo: "win" },
 ];
 
+const roundFourMatches: Match[] = [];
+
 const roundOneLore = [
   "Nowy Kopiec dopiero wyrasta z popiołów. Nad rozrastającymi się hab-blokami wiszą dźwigi, niedokończone wieże, a pod nimi tysiące robotników, osadników, kontraktorów i wyrzutków próbują wyrwać dla siebie kawałek przyszłości. Jedni przybyli tu pracować. Drudzy handlować. Większość po prostu liczy, że przeżyje wystarczająco długo, by nie umrzeć biednie. Na Necromundzie każda nowa osada jest obietnicą zysku. A każda obietnica zysku prędzej czy później kończy się trupem.",
   "Pierwsze strzały i pierwsze ciała zaczęły znikać w odpływach, zsuwając się przez kanały i rozbite rury procesowe do toksycznych sumpów pod fundamentami kopca, tam, gdzie chemikalia żrą stal, a martwe mięso przestaje mieć imię.",
@@ -89,6 +91,11 @@ const roundThreeLore = [
   "Tymczasem Enforcerzy nie zamierzają po raz kolejny patrzeć, jak Kopiec wymyka im się z rąk. W ostatnich cyklach widziano ich patrole w pobliżu Generatoriów Głównej Sieci i stacji rozdzielczych zasilających niższe sektory. Administracja mówi o kontroli infrastruktury i pracach zabezpieczających. Mieszkańcy szepczą jednak o kontrolowanych odcięciach energii, bo dzięki temu łatwiej będzie uporać się z gangami.",
 ];
 
+const roundFourLore = [
+  "Kopiec ma już swoich pierwszych możnych. Ironhead Squat Prospectors zajęli rozległe tereny, zgromadzili pokaźne bogactwa i wycisnęli z młodej osady więcej, niż ktokolwiek się spodziewał. Ich składy pęcznieją od surowców, warsztaty pracują bez przerwy, a ciężkie kroki Squatów słychać w coraz większej liczbie sektorów. Nie są jednak sami. Escherki, Goliathy i Van Saarowie depczą im po piętach, wyrywając kolejne fragmenty Kopca i budując własne strefy wpływów. Różnice między najpotężniejszymi gangami są niewielkie, a jeden dobry cykl może całkowicie odmienić układ sił.",
+  "Plotki o skarbach pozostawionych przez pierwszych osadników okazały się prawdziwe. Z zapomnianych tuneli wyniesiono skrzynie pełne broni, części, chemów i starego wyposażenia. Teraz gangi zamykają włazy, wzmacniają barykady, uruchamiają zdobyty sprzęt i próbują ugruntować władzę nad tym, co udało im się zagarnąć. Ale ci, którym dotąd brakowało szczęścia, nie zniknęli. Obserwowali. Zapamiętywali trasy patroli, słabe punkty umocnień i miejsca, w których zwycięzcy zaczęli czuć się zbyt bezpiecznie. W opuszczonych sektorach pojawiają się fałszywe sygnały alarmowe, znikają zwiadowcy, bramy zamykają się same, a w ciemnych przejściach ktoś cierpliwie czeka z palcem na spuście. W Kopcu coraz częściej mówi się o zemście i o tym, że podczas kolejnych wypraw to łowcy mogą stać się ofiarami.",
+];
+
 const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
 const tableGrid = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
@@ -108,6 +115,8 @@ export function RaportyPageV3() {
               <ReportsTable matches={roundTwoMatches} />
               <RoundSection title="Runda 3 - Cień nieobecnych." image="/Tunnels.png" imageAlt="Gangi przeszukujące zapomniane tunele Kopca" lore={roundThreeLore} info={<><span>Scenariusz: Forgotten Riches</span><br /><span>Terrain: Tunnels of Zone Mortalis (7 tiles - 1 floor)</span><br /><span>Termin 3 rundy: 20.07-02.08</span></>} />
               <ReportsTable matches={roundThreeMatches} />
+              <RoundSection title="Runda 4 - Dług krwi." image="/runda04.jpeg" imageAlt="Zasadzka w przemysłowych sektorach Kopca" lore={roundFourLore} info={<><span>Scenariusz: The Trap</span><br /><span>Termin 4 rundy: 03.08-16.08</span></>} />
+              <ReportsTable matches={roundFourMatches} />
             </motion.div>
           </div>
         </section>
