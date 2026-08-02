@@ -48,19 +48,19 @@ const roundTwoMatches: Match[] = [
 ];
 
 const roundThreeMatches: Match[] = [
-  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Manufactorum Level" },
-  { playerOne: "Toll", gangOne: "Róże dla Agnes", houseOne: "Goliath", playerTwo: "Paul Formann", gangTwo: "The Death Asterism", houseTwo: "Spyre Hunters", territory: "Slave Pits" },
-  { playerOne: "Adam1983", gangOne: "Blades of Primus", houseOne: "Escher", playerTwo: "Blaz", gangTwo: "Fever Dream", houseTwo: "Van Saar", territory: "Wall Outpost" },
-  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Reclamation Zone" },
-  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Guilder Stronghold" },
-  { playerOne: "Magos Hehetek", gangOne: "Brain Dancers", houseOne: "Helot Chaos Cults", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Chaos Fane" },
+  { playerOne: "Wikoroo", gangOne: "The Thousandfold Charge", houseOne: "Van Saar", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Manufactorum Level", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Toll", gangOne: "Róże dla Agnes", houseOne: "Goliath", playerTwo: "Paul Formann", gangTwo: "The Death Asterism", houseTwo: "Spyre Hunters", territory: "Slave Pits", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Adam1983", gangOne: "Blades of Primus", houseOne: "Escher", playerTwo: "Blaz", gangTwo: "Fever Dream", houseTwo: "Van Saar", territory: "Wall Outpost", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Reclamation Zone", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Guilder Stronghold", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Magos Hehetek", gangOne: "Brain Dancers", houseOne: "Helot Chaos Cults", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Chaos Fane", resultOne: "draw", resultTwo: "draw" },
   { playerOne: "Piotr", gangOne: "Unit Four", houseOne: "Enforcers", playerTwo: "Telchar", gangTwo: "Rad Queens", houseTwo: "Escher", territory: "Underhive Shrine" },
-  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Marcin z Chmielu", gangTwo: "Chains & Corsets", houseTwo: "Escher", territory: "Fungal Sprawl" },
+  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Marcin z Chmielu", gangTwo: "Chains & Corsets", houseTwo: "Escher", territory: "Fungal Sprawl", resultOne: "lose", resultTwo: "win" },
   { playerOne: "Billiskner", gangOne: "Precinct 139513", houseOne: "Enforcers", playerTwo: "metalfan", gangTwo: "The Neon Spectre", houseTwo: "Delaque", territory: "Hab Level" },
-  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Werjan", gangTwo: "Moxxi's phenomena menagerie waw", houseTwo: "Escher", territory: "Thermal Vent" },
-  { playerOne: "Ildephonse", gangOne: "Denim Demons", houseOne: "Orlock", playerTwo: "stooopak", gangTwo: "Chłopcy z Ośrodka (GWC)", houseTwo: "Delaque", territory: "Wastelands" },
+  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Werjan", gangTwo: "Moxxi's phenomena menagerie waw", houseTwo: "Escher", territory: "Thermal Vent", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Ildephonse", gangOne: "Denim Demons", houseOne: "Orlock", playerTwo: "stooopak", gangTwo: "Chłopcy z Ośrodka (GWC)", houseTwo: "Delaque", territory: "Wastelands", resultOne: "win", resultTwo: "lose" },
   { playerOne: "Kastor", gangOne: "Tactical Squadron Nimrod - Σ", houseOne: "Enforcers", playerTwo: "BarTolomai", gangTwo: "Wastefarers", houseTwo: "Ash Waste Nomads", territory: "Toll Crossing" },
-  { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Ash Gate" },
+  { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Ash Gate", resultOne: "lose", resultTwo: "win" },
 ];
 
 const roundOneLore = [
