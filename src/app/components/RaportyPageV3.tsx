@@ -63,7 +63,21 @@ const roundThreeMatches: Match[] = [
   { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Ash Gate", resultOne: "lose", resultTwo: "win" },
 ];
 
-const roundFourMatches: Match[] = [];
+const roundFourMatches: Match[] = [
+  { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "Wikoroo", gangTwo: "The Thousandfold Charge", houseTwo: "Van Saar", territory: "-", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Paul Formann", gangOne: "The Death Asterism", houseOne: "Spyre Hunters", playerTwo: "BarTolomai", gangTwo: "Wastefarers", houseTwo: "Ash Waste Nomads", territory: "-", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Werjan", gangOne: "Moxxi's phenomena menagerie waw", houseOne: "Escher", playerTwo: "Nahar", gangTwo: "Femgaj Boyzz", houseTwo: "Goliath", territory: "Sludge Sea", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Telchar", gangOne: "Rad Queens", houseOne: "Escher", playerTwo: "Magos Hehetek", gangTwo: "Brain Dancers", houseTwo: "Helot Chaos Cults", territory: "Rogue Doc Shop", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "metalfan", gangOne: "The Neon Spectre", houseOne: "Delaque", playerTwo: "Billiskner", gangTwo: "Precinct 139513", houseTwo: "Enforcers", territory: "Workshop", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Piotr", gangOne: "Unit Four", houseOne: "Enforcers", playerTwo: "Karmatis", gangTwo: "Purple Scars", houseTwo: "Corpse Grinder Cult", territory: "Tech Bazaar", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "stooopak", gangOne: "Chłopcy z Ośrodka (GWC)", houseOne: "Delaque", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "Promethium Cache", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "Collapsed Dome", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Ildephonse", gangOne: "Denim Demons", houseOne: "Orlock", playerTwo: "Toll", gangTwo: "Róże dla Agnes", houseTwo: "Goliath", territory: "Mine Workings", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Blaz", gangOne: "Fever Dream", houseOne: "Van Saar", playerTwo: "Pix", gangTwo: "Rusted Foxes", houseTwo: "Ash Waste Nomads", territory: "Chaos Fane", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Helljumper", gangOne: "Ironheads", houseOne: "Orlock", playerTwo: "Adam", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "Thermal Vent", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Kastor", gangOne: "Tactical Squadron Nimrod - Σ", houseOne: "Enforcers", playerTwo: "Ender", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors", territory: "-", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Marcin z Chmielu", gangOne: "Chains & Corsets", houseOne: "Escher", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Fungal Sprawl", resultOne: "lose", resultTwo: "win" },
+];
 
 const roundOneLore = [
   "Nowy Kopiec dopiero wyrasta z popiołów. Nad rozrastającymi się hab-blokami wiszą dźwigi, niedokończone wieże, a pod nimi tysiące robotników, osadników, kontraktorów i wyrzutków próbują wyrwać dla siebie kawałek przyszłości. Jedni przybyli tu pracować. Drudzy handlować. Większość po prostu liczy, że przeżyje wystarczająco długo, by nie umrzeć biednie. Na Necromundzie każda nowa osada jest obietnicą zysku. A każda obietnica zysku prędzej czy później kończy się trupem.",
