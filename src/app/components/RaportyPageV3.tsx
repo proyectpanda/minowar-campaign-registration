@@ -79,6 +79,21 @@ const roundFourMatches: Match[] = [
   { playerOne: "Marcin z Chmielu", gangOne: "Chains & Corsets", houseOne: "Escher", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "Fungal Sprawl", resultOne: "lose", resultTwo: "win" },
 ];
 
+const roundFiveMatches: Match[] = [
+  { playerOne: "Paul Formann", gangOne: "The Death Asterism", houseOne: "Spyre Hunters", playerTwo: "Wikoroo", gangTwo: "The Thousandfold Charge", houseTwo: "Van Saar", territory: "" },
+  { playerOne: "Ender", gangOne: "Salamanders", houseOne: "Ironhead Squat Prospectors", playerTwo: "Telchar", gangTwo: "Rad Queens", houseTwo: "Escher", territory: "" },
+  { playerOne: "ProjectPanda", gangOne: "Vaag’Inesh Unwashed", houseOne: "Underhive Outcasts", playerTwo: "Adam1983", gangTwo: "Blades of Primus", houseTwo: "Escher", territory: "" },
+  { playerOne: "Nahar", gangOne: "Femgaj Boyzz", houseOne: "Goliath", playerTwo: "Marcin / Ciruell", gangTwo: "Śmieciarze / Garbage collectors", houseTwo: "Van Saar", territory: "" },
+  { playerOne: "Ildephonse", gangOne: "Denim Demons", houseOne: "Orlock", playerTwo: "metalfan", gangTwo: "The Neon Spectre", houseTwo: "Delaque", territory: "" },
+  { playerOne: "Piotr", gangOne: "Unit Four", houseOne: "Enforcers", playerTwo: "LosAntos", gangTwo: "Żelazne Kufle", houseTwo: "Ironhead Squat Prospectors", territory: "" },
+  { playerOne: "Billiskner", gangOne: "Precinct 139513", houseOne: "Enforcers", playerTwo: "Twentytwo", gangTwo: "Bad Mojo", houseTwo: "Escher", territory: "" },
+  { playerOne: "Marcin z Chmielu", gangOne: "Chains & Corsets", houseOne: "Escher", playerTwo: "Toll", gangTwo: "Róże dla Agnes", houseTwo: "Goliath", territory: "" },
+  { playerOne: "Blaz", gangOne: "Fever Dream", houseOne: "Van Saar", playerTwo: "Magos Hehetek", gangTwo: "Brain Dancers", houseTwo: "Helot Chaos Cults", territory: "" },
+  { playerOne: "Pix", gangOne: "Rusted Foxes", houseOne: "Ash Waste Nomads", playerTwo: "Helljumper", gangTwo: "Ironheads", houseTwo: "Orlock", territory: "" },
+  { playerOne: "Karmatis", gangOne: "Purple Scars", houseOne: "Corpse Grinder Cult", playerTwo: "Werjan", gangTwo: "Moxxi's phenomena menagerie waw", houseTwo: "Escher", territory: "Drinking Hole" },
+  { playerOne: "Kapisu", gangOne: "Żelazne Gatory", houseOne: "Goliath", playerTwo: "stooopak", gangTwo: "Chłopcy z Ośrodka (GWC)", houseTwo: "Delaque", territory: "Toll Crossing" },
+];
+
 const roundOneLore = [
   "Nowy Kopiec dopiero wyrasta z popiołów. Nad rozrastającymi się hab-blokami wiszą dźwigi, niedokończone wieże, a pod nimi tysiące robotników, osadników, kontraktorów i wyrzutków próbują wyrwać dla siebie kawałek przyszłości. Jedni przybyli tu pracować. Drudzy handlować. Większość po prostu liczy, że przeżyje wystarczająco długo, by nie umrzeć biednie. Na Necromundzie każda nowa osada jest obietnicą zysku. A każda obietnica zysku prędzej czy później kończy się trupem.",
   "Pierwsze strzały i pierwsze ciała zaczęły znikać w odpływach, zsuwając się przez kanały i rozbite rury procesowe do toksycznych sumpów pod fundamentami kopca, tam, gdzie chemikalia żrą stal, a martwe mięso przestaje mieć imię.",
@@ -110,6 +125,12 @@ const roundFourLore = [
   "Plotki o skarbach pozostawionych przez pierwszych osadników okazały się prawdziwe. Z zapomnianych tuneli wyniesiono skrzynie pełne broni, części, chemów i starego wyposażenia. Teraz gangi zamykają włazy, wzmacniają barykady, uruchamiają zdobyty sprzęt i próbują ugruntować władzę nad tym, co udało im się zagarnąć. Ale ci, którym dotąd brakowało szczęścia, nie zniknęli. Obserwowali. Zapamiętywali trasy patroli, słabe punkty umocnień i miejsca, w których zwycięzcy zaczęli czuć się zbyt bezpiecznie. W opuszczonych sektorach pojawiają się fałszywe sygnały alarmowe, znikają zwiadowcy, bramy zamykają się same, a w ciemnych przejściach ktoś cierpliwie czeka z palcem na spuście. W Kopcu coraz częściej mówi się o zemście i o tym, że podczas kolejnych wypraw to łowcy mogą stać się ofiarami.",
 ];
 
+const roundFiveLore = [
+  "Władze Kopca straciły cierpliwość. Po tygodniach strzelanin, grabieży i gangów rozrastających się szybciej niż administracja zdążyła zaznaczać ich terytoria na mapach, Enforcerzy rozpoczęli czystki. Patrole ruszyły w głąb najbardziej niespokojnych sektorów, a posterunki otrzymały prosty rozkaz: przywrócić Pax Helmawr wszelkimi dostępnymi środkami.",
+  "Pierwszym celem nie były jednak gangi, lecz sam Kopiec. Enforcerzy przejęli stacje rozdzielcze i odcięli od głównej sieci całe sektory. Jedna po drugiej gasną lampy lumenowe, zatrzymują się windy, milkną wentylatory, a tunele, hale i opuszczone faktoria toną w absolutnej ciemności. Administracja nazywa to „kontrolowanym wygaszeniem infrastruktury”. Mieszkańcy mają na to prostsze określenie: noc.",
+  "W ciemności kończy się jednak także kontrola. Zza barykad dobiegają strzały, w martwych korytarzach poruszają się sylwetki bez oznaczeń, a gangi wykorzystują chaos do wyrównywania starych rachunków. Enforcerzy chcieli odebrać im teren i przewagę.",
+];
+
 const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
 const tableGrid = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
@@ -131,6 +152,8 @@ export function RaportyPageV3() {
               <ReportsTable matches={roundThreeMatches} />
               <RoundSection title="Runda 4 - Dług krwi." image="/runda04.jpeg" imageAlt="Zasadzka w przemysłowych sektorach Kopca" lore={roundFourLore} info={<><span>Scenariusz: The Trap</span><br /><span>Termin 4 rundy: 03.08-16.08</span></>} />
               <ReportsTable matches={roundFourMatches} />
+              <RoundSection title="Runda 5 - Gasnące korytarze" image="/runda05.jpeg" imageAlt="Walka w wygaszonych korytarzach Kopca" lore={roundFiveLore} info={<><span>Scenariusz: Takeover (Pitch Black)</span><br /><span>Termin 5 rundy: 18.08-31.08</span></>} />
+              <ReportsTable matches={roundFiveMatches} />
             </motion.div>
           </div>
         </section>
