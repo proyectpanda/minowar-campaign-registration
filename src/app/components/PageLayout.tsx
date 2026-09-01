@@ -18,6 +18,21 @@ const roundFiveResults: Array<[RoundFiveResult, RoundFiveResult] | null> = [
   ["lose", "win"],
 ];
 
+const roundFiveTerritories = [
+  "Settlement",
+  "Underhive Shrine",
+  "Thermal Vent",
+  "Settlement",
+  "-",
+  "Fungal Sprawl",
+  "Workshop",
+  "-",
+  "-",
+  "",
+  "Drinking Hole",
+  "Toll Crossing",
+];
+
 const roundSixMatches = [
   ["Ender", "Salamanders", "Ironhead Squat Prospectors", "Nahar", "Femgaj Boyzz", "Goliath"],
   ["Wikoroo", "The Thousandfold Charge", "Van Saar", "Ildephonse", "Denim Demons", "Orlock"],
@@ -168,6 +183,11 @@ export function PageLayout({ children }: { children: ReactNode }) {
 
     if (rowsContainer) {
       Array.from(rowsContainer.children).forEach((row, index) => {
+        const territoryColumn = row.children[2] as HTMLElement | undefined;
+        if (territoryColumn) {
+          territoryColumn.textContent = roundFiveTerritories[index] ?? "";
+        }
+
         const resultColumn = row.lastElementChild as HTMLElement | null;
         if (!resultColumn) return;
 
