@@ -57,7 +57,7 @@ function createRoundSixReport() {
   heading.textContent = "RUNDA VI - PLAGI";
 
   const image = document.createElement("img");
-  image.src = "/runda06.jpg";
+  image.src = "/runda06.png";
   image.alt = "Plagi i awarie po przywróceniu zasilania w Kopcu";
   image.className = "w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover";
 
