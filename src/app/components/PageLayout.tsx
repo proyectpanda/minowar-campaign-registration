@@ -223,7 +223,13 @@ export function PageLayout({ children }: { children: ReactNode }) {
 
     if (!document.getElementById("round-six-report") && tableSection?.parentElement) {
       const roundSix = createRoundSixReport();
-      tableSection.parentElement.append(roundSix.section, roundSix.tableSection);
+      const conclusion = document.getElementById("campaign-conclusion");
+      if (conclusion?.parentElement === tableSection.parentElement) {
+        tableSection.parentElement.insertBefore(roundSix.section, conclusion);
+        tableSection.parentElement.insertBefore(roundSix.tableSection, conclusion);
+      } else {
+        tableSection.parentElement.append(roundSix.section, roundSix.tableSection);
+      }
     }
   }, []);
 
