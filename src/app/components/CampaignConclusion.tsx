@@ -1,3 +1,5 @@
+import { CampaignGallery } from "./CampaignGallery";
+
 const headingStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
 
@@ -107,6 +109,7 @@ export function CampaignConclusion() {
           <p><strong>Oczekujcie kolejnej transmisji ze szczytu kopca.</strong></p>
         </div>
       </section>
+      <CampaignGallery />
     </section>
   );
 }
