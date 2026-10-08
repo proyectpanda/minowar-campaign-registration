@@ -1,4 +1,5 @@
 import { CampaignGallery } from "./CampaignGallery";
+import { AwardsGallery } from "./AwardsGallery";
 
 const headingStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
@@ -14,7 +15,7 @@ export function CampaignConclusion() {
         <h2 className={headingClass} style={headingStyle}>PODSUMOWANIE KAMPANII</h2>
 
         <div className={bodyClass} style={bodyStyle}>
-          <p>Sześć rund. Dziesiątki strzelanin, połamanych kończyn, przejętych terenów, trupów pozostawionych w rynsztokach i planów, które spektakularnie poszły w diabły. Tak skończyła się nasza pierwsza kampania Dominion.</p>
+          <p>Sześć rund. Dziesiątki strzelanin, połamanych kończyn, przejętych terenów, trupów pozostawionych w rynsztokach i planów, które spektakularnie poszły w diabły. Tak skończyła się nasza pierwsza kampania Dominion. Łącznie rozegraliśmy ponad 70 gier.</p>
           <p>Już pierwsza runda ustawiła ton całej kampanii — trzynaście starć i tylko jeden remis. Potem było już tylko gorzej. Albo lepiej, zależnie od tego, po której stronie lufy się stało. Z rundy na rundę coraz wyraźniej było widać, kto rzeczywiście zamierza wyrwać dla siebie kawał kopca, a kto będzie musiał zadowolić się bliznami i opowieściami przy barze. Do ostatnich cykli w czołówce utrzymywały się Salamanders, The Thousandfold Charge, Femgaj Boyzz, Rad Queens i Bad Mojo. Szósta runda <strong>Escape the Badzone</strong> nie była jednak formalnością. Femgaj Boyzz zdołali pokonać Salamanders, Bad Mojo dobiło Purple Scars, Vaag’Inesh Unwashed rozprawili się z Chains &amp; Corsets, a The Death Asterism po raz kolejny urządziło sobie egzekucję — tym razem na Tactical Squadron Nimrod. Denim Demons i The Thousandfold Charge zakończyli kampanię remisem.</p>
           <p>Jeżeli spojrzeć na regularne frakcje i <strong>odłożyć na bok Spyrerów oraz kultystów Chaosu</strong>, z kopca wychodzą trzy siły, które zostawiły po sobie największy ślad. <strong>Escher</strong> miały największą masę zwycięstw — pięć gangów tej frakcji zebrało łącznie 14 wygranych. <strong>Ironhead Squat Prospectors</strong> mieli ich 10, ale przy zaledwie dwóch gangach i 15 rozegranych bitwach byli zdecydowanie najbardziej skuteczną regularną frakcją. <strong>Van Saar</strong> dorzucili 9 zwycięstw i The Thousandfold Charge, który praktycznie przez całą kampanię siedział ścisłej czołówce. Za nimi zostali Orlockowie, Goliaci, Delaque i Enforcerzy.</p>
           <p>Czyli jeżeli ktoś dzisiaj pyta, <strong>kto rządzi w tym kopcu</strong>, odpowiedź brzmi mniej więcej tak: <strong>Squats mają siłę i pieniądze, Escherki są wszędzie i mają liczby, a Van Saar wciąż mają technologię oraz ludzi, których lepiej nie lekceważyć.</strong></p>
@@ -22,14 +23,18 @@ export function CampaignConclusion() {
         </div>
 
         <ul className="list-disc pl-6 space-y-3 text-[#6e757c] text-[18px] leading-[28px] marker:text-[#1c3b56]" style={bodyStyle}>
-          <li><strong>Dominator — Ender, Salamanders.</strong> Pięć zwycięstw w sześciu kampanijnych rundach i pięć kontrolowanych terenów. Za nimi ex aequo <strong>Femgaj Boyzz Nahara</strong> oraz <strong>The Thousandfold Charge Wikoroo</strong> z bilansem 4–1–1. Bad Mojo i Rad Queens również zakończyli kampanię z czterema zwycięstwami. <strong>Creditor</strong> także trafił do Salamanders, a Ender zgarnął również <strong>Warmongera</strong>, przy ośmiu rozegranych bitwach; Bad Mojo miało tyle samo starć.</li>
+          <li><strong>Dominator — Ender, Salamanders.</strong> Za największą liczbę zwycięstw: pięć wygranych w sześciu kampanijnych rundach i pięć kontrolowanych terenów. Za nimi ex aequo <strong>Femgaj Boyzz Nahara</strong> oraz <strong>The Thousandfold Charge Wikoroo</strong> z bilansem 4–1–1. Bad Mojo i Rad Queens również zakończyli kampanię z czterema zwycięstwami.</li>
+          <li><strong>Creditor — Ender, Salamanders.</strong> Za największe bogactwo zgromadzone przez gang podczas kampanii.</li>
+          <li><strong>Warmonger — Ender, Salamanders.</strong> Za największą liczbę rozegranych bitew: osiem starć. Tyle samo gier rozegrało Bad Mojo.</li>
           <li><strong>Powerbroker — Żelazne Kufle, LosAntos / Antosik</strong>, z Reputation 17. Wyższy wynik — 20 punktów Reputation — miało jeszcze The Death Asterism, ale Spyrerzy to w tej historii osobna kategoria.</li>
           <li><strong>Slaughterer — Ildephonse, Denim Demons.</strong> <strong>33 wrogich fighterów Out of Action lub pojazdów Wrecked.</strong> Dla porównania Salamanders nabiły 31, a Spyrerzy 32 w samych grach kampanijnych. Orlockowie może nie przejęli kopca, ale przynajmniej zostawili za sobą odpowiednią liczbę worków na zwłoki.</li>
           <li><strong>Meatgrinder — Helljumper, Ironheads.</strong> Osiem utraconych fighterów. Kiedy inni liczyli kredyty i Reputation, Ironheads liczyli wolne miejsca na rosterze.</li>
           <li><strong>Mastermind — Twentytwo, Bad Mojo.</strong> Nie tylko wyniki, ale pełny klimat gangu, backstory, gang notes, prywatne zapiski, zdjęcia i konsekwentny pomysł na Chaos Escher. Wyróżnione zostały też Moxxi's Phenomena Menagerie, The Thousandfold Charge i Chłopcy z Ośrodka.</li>
-          <li><strong>Pactkeeper — Wikoroo, The Thousandfold Charge.</strong> Za fair play, pomoc innym, znajomość zasad i ogólny wkład w kampanię. Czyli dowód, że można dużo wygrywać i nadal nie być dupkiem przy stole.</li>
+          <li><strong>Pactkeeper — Wikoroo, The Thousandfold Charge.</strong> Za ogromny wkład w kampanię i nieocenioną pomoc pozostałym graczom. Mało kto znał zasady Necromundy tak dobrze jak Wikoroo. Był jednym z pierwszych, którzy pomagali rozwiązywać zagwozdki, wyjaśniali niejasności i odpowiadali na pytania przy stołach. A przy tym przez całą kampanię utrzymywał swoich Van Saarów w ścisłej czołówce tabeli.</li>
           <li><strong>Unbroken — Kapisu, Żelazne Gatory.</strong> Sześć kampanijnych porażek i ani jednego „pierdolę, nie gram”. Gang dostawał po łbie, ale jego dowódca wracał na kolejną bitwę. I właśnie dlatego to wyróżnienie ma sens.</li>
         </ul>
+
+        <AwardsGallery />
 
         <div className={bodyClass} style={bodyStyle}>
           <p>Warto też pamiętać, że do kampanii weszło <strong>sześciu graczy oznaczonych jako całkowicie nowych w Necromundzie</strong>: Toll, Billiskner, Magos Hehetek, BarTolomai, metalfan i Kastor. Dla kampanii to równie ważne jak tabelka wyników — sześć kolejnych osób weszło do kopca i przekonało się na własnej skórze, że plan przestaje istnieć mniej więcej w momencie pierwszego rzutu kością.</p>
@@ -37,6 +42,7 @@ export function CampaignConclusion() {
 
         <div className="space-y-4">
           <h3 className={subheadingClass} style={headingStyle}>Problem numer jeden: Chaos</h3>
+          <img src="/chaos1.jpg" alt="Kult Chaosu i jego przerażające bestie w podziemiach Kopca" className="w-full h-[260px] sm:h-[380px] lg:h-[703px] object-cover" loading="lazy" />
           <div className={bodyClass} style={bodyStyle}>
             <p>Bo jest jeszcze coś, o czym administracja kopca zapewne wolałaby nie mówić.</p>
             <p><strong>Vaag’Inesh Unwashed</strong> zakończyli kampanię z <strong>pięcioma zwycięstwami, jednym remisem i ani jedną porażką</strong>. Żadnej. Kult boga Vaag’Inesha nie przyszedł więc do kopca rozdawać ulotek — przyszedł zostać.</p>
@@ -99,7 +105,7 @@ export function CampaignConclusion() {
           <p>Ogromne dzięki dla wszystkich graczy i nekromundiarzy, którzy wzięli udział w naszej pierwszej tak dużej kampanii Necromundy w Warszawie. Zainteresowanie zdecydowanie przerosło nasze oczekiwania i tym bardziej cieszy mnie, że kampania została tak dobrze przyjęta, a przy stołach po prostu dobrze się bawiliśmy.</p>
           <p>Wielkie podziękowania należą się także współorganizatorom — <strong>Piotrkowi i Marcinowi z Chmiel i Słód w Legionowie</strong> oraz <strong>Matisoft Club Kowalczyka na Żeraniu</strong>. Za możliwość grania u Was, udostępnienie stołów, świetnych terenów i stworzenie miejsc, w których ten cały warszawski kopiec mógł naprawdę zacząć żyć.</p>
           <p>Osobne dzięki za przygotowanie <strong>klimatycznych nekromundowych trofeów i medali</strong>. Wyglądało to naprawdę świetnie i bardzo się cieszę, że tylu graczy wyszło z finału nie tylko ze wspomnieniami, ale też z konkretną pamiątką z kampanii. Nagrody, figurki, medale, trofea — było tego naprawdę sporo i dzięki temu zakończenie miało odpowiednią oprawę.</p>
-          <p>Dziękuję również <strong>Lootpile.eu</strong> oraz <strong>Druckheim.pl</strong> za dorzucenie kuponów zakupowych, wydrukowanych dodatków i świetnych figurek. Dzięki temu mogliśmy naprawdę solidnie obsypać naszych gangerów nagrodami.</p>
+          <p>Dziękuję również <strong style={{ color: "#00378D" }}>Lootpile.eu</strong> oraz <strong style={{ color: "#00378D" }}>Druckheim.pl</strong> za dorzucenie kuponów zakupowych, wydrukowanych dodatków i świetnych figurek. Dzięki temu mogliśmy naprawdę solidnie obsypać naszych gangerów nagrodami.</p>
           <p>Najważniejsza była jednak atmosfera. Była rywalizacja, były emocje, były strzały w plecy i trupy spadające z pomostów, ale była też masa wzajemnej pomocy. Wielu bardziej doświadczonych graczy pomagało przy zasadach, szczególnie osobom, które dopiero zaczynały swoją przygodę z Necromundą, a część z Was wręcz prowadziła nowych graczy przez ich pierwsze bitwy.</p>
           <p>Był klimat. Była zdrowa rywalizacja. Było dużo śmiechu i dużo trupów.</p>
           <p>Czyli dokładnie to, czego Necromunda potrzebuje.</p>
