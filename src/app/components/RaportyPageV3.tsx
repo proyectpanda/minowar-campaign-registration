@@ -1,6 +1,7 @@
 import { PageLayout } from "./PageLayout";
 import { motion } from "motion/react";
 import necromundaLogo from "@/imports/Necromunda.b64";
+import { CampaignConclusion } from "./CampaignConclusion";
 
 type Result = "win" | "lose" | "draw";
 
@@ -154,6 +155,7 @@ export function RaportyPageV3() {
               <ReportsTable matches={roundFourMatches} />
               <RoundSection title="Runda 5 - Gasnące korytarze" image="/runda05.jpeg" imageAlt="Walka w wygaszonych korytarzach Kopca" lore={roundFiveLore} info={<><span>Scenariusz: Takeover (Pitch Black)</span><br /><span>Termin 5 rundy: 18.08-31.08</span></>} />
               <ReportsTable matches={roundFiveMatches} />
+              <CampaignConclusion />
             </motion.div>
           </div>
         </section>
