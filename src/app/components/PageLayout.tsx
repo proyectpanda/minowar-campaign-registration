@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
 
 type RoundFiveResult = "win" | "lose";
+type ReportResult = RoundFiveResult | "draw";
 
 const roundFiveResults: Array<[RoundFiveResult, RoundFiveResult] | null> = [
   ["win", "lose"],
@@ -48,6 +49,21 @@ const roundSixMatches = [
   ["metalfan", "The Neon Spectre", "Delaque", "Paul Formann", "The Death Asterism", "Spyre Hunters"],
 ] as const;
 
+const roundSixOutcomes: Array<{ territory: string; results: [ReportResult, ReportResult] } | null> = [
+  { territory: "Tunnels", results: ["lose", "win"] },
+  { territory: "-", results: ["draw", "draw"] },
+  { territory: "-", results: ["draw", "draw"] },
+  { territory: "-", results: ["win", "lose"] },
+  { territory: "Drinking Hole", results: ["lose", "win"] },
+  { territory: "Chaos Fane", results: ["win", "lose"] },
+  { territory: "Fighting Pit", results: ["win", "lose"] },
+  { territory: "-", results: ["win", "lose"] },
+  { territory: "Ash Gate", results: ["lose", "win"] },
+  null,
+  null,
+  null,
+];
+
 const roundSixLore = [
   "Znaczna część Kopca przez długie cykle pozostawała pogrążona w ciemności. W martwych korytarzach nie było widać niemal nic - tylko co jakiś czas mrok rozcinały serie wystrzałów, błyski plazmy i krótkie eksplozje, po których wszystko znowu znikało w czerni. Odcięcie zasilania miało złamać gangi. Zamiast tego zaczęło łamać sam Kopiec.",
   "Wraz z energią padły systemy wentylacji, filtry, pompy, śluzy i zabezpieczenia chroniące niższe sektory przed tym, co od dawna próbowało dostać się do środka. Toksyczne opary zaczęły sączyć się do habów, kanały przepełnił chemiczny szlam, a tysiące szczurów i innych stworzeń uciekających z zalewanych tuneli ruszyły ku wyższym poziomom. W jednych sektorach zabrakło powietrza, w innych zawiodły drzwi bezpieczeństwa, gdzie indziej stare instalacje zaczęły wyrzucać do wnętrza Kopca wszystko, co przez lata miały trzymać na zewnątrz.",
@@ -55,7 +71,7 @@ const roundSixLore = [
   "Jeszcze nigdy nie było tu tak źle.",
 ];
 
-function createResultBadge(result: RoundFiveResult) {
+function createResultBadge(result: ReportResult) {
   const badge = document.createElement("span");
   badge.className = `inline-flex items-center justify-center min-w-12 h-8 px-2 rounded-md text-[16px] font-semibold uppercase text-white ${result === "win" ? "bg-[#00378d]" : "bg-[#6e757c]"}`;
   badge.textContent = result.toUpperCase();
@@ -106,7 +122,7 @@ function createRoundSixReport() {
   });
 
   const rows = document.createElement("div");
-  roundSixMatches.forEach(([playerOne, gangOne, houseOne, playerTwo, gangTwo, houseTwo]) => {
+  roundSixMatches.forEach(([playerOne, gangOne, houseOne, playerTwo, gangTwo, houseTwo], index) => {
     const row = document.createElement("div");
     row.className = "grid grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px] gap-6 items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]";
 
@@ -121,6 +137,12 @@ function createRoundSixReport() {
 
     const result = document.createElement("div");
     result.className = "flex items-center gap-4 min-h-8";
+
+    const outcome = roundSixOutcomes[index];
+    if (outcome) {
+      territory.textContent = outcome.territory;
+      result.append(createResultBadge(outcome.results[0]), createResultBadge(outcome.results[1]));
+    }
 
     row.append(players, gangs, territory, result);
     rows.append(row);
