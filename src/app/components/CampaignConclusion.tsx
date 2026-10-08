@@ -7,7 +7,7 @@ const bodyClass = "space-y-4 text-[#6e757c] text-[18px] leading-[28px]";
 
 export function CampaignConclusion() {
   return (
-    <section id="campaign-conclusion" className="space-y-12 pt-10 mt-10 border-t border-[#bebdbc]">
+    <section id="campaign-conclusion" className="space-y-12 pt-10 mt-10 border-t border-[#bebdbc] [&_strong]:text-[#0D0D0E]">
       <section className="space-y-6">
         <h2 className={headingClass} style={headingStyle}>PODSUMOWANIE KAMPANII</h2>
 
@@ -62,28 +62,28 @@ export function CampaignConclusion() {
         <div className="space-y-5 text-[#6e757c] text-[18px] leading-[28px]" style={bodyStyle}>
           <div>
             <p><strong>Dominujące siły:</strong></p>
-            <p><strong>House Escher</strong> — obecnie najsilniejsza frakcja pod względem łącznej liczby zwycięstw.</p>
-            <p><strong>Ironhead Squat Prospectors</strong> — druga siła kopca; nieliczni, ale wyjątkowo skuteczni.</p>
-            <p><strong>House Van Saar</strong> — trzecia dominująca siła, nadal posiadająca znaczące wpływy i terytoria.</p>
+            <p><strong style={{ color: "#00378D" }}>House Escher</strong> — obecnie najsilniejsza frakcja pod względem łącznej liczby zwycięstw.</p>
+            <p><strong style={{ color: "#00378D" }}>Ironhead Squat Prospectors</strong> — druga siła kopca; nieliczni, ale wyjątkowo skuteczni.</p>
+            <p><strong style={{ color: "#00378D" }}>House Van Saar</strong> — trzecia dominująca siła, nadal posiadająca znaczące wpływy i terytoria.</p>
           </div>
           <div>
-            <p><strong>Indeks skażenia heretyckiego: PODWYŻSZONY</strong></p>
+            <p><strong>Indeks skażenia heretyckiego: <span style={{ color: "#BF0000" }}>PODWYŻSZONY</span></strong></p>
             <p>Potwierdzono działalność kilku ognisk kultów Chaosu. Na obecnym etapie sytuacja pozostaje lokalna, ale obecność heretyckich ugrupowań jest trwałym problemem i wymaga obserwacji.</p>
           </div>
           <div>
-            <p><strong>Klasyfikacja zagrożeń zewnętrznych: WYSOKA</strong></p>
+            <p><strong>Klasyfikacja zagrożeń zewnętrznych: <span style={{ color: "#BF0000" }}>WYSOKA</span></strong></p>
             <p>Kopiec został uznany przez Spyrerów za <strong>aktywny teren łowiecki</strong>. Powtarzające się polowania i brak skutecznego oporu sugerują, że arystokratyczni łowcy mogą powrócić przy pierwszej dogodnej okazji.</p>
           </div>
           <div>
-            <p><strong>Poziom kontroli Palanite: NISKI</strong></p>
+            <p><strong>Poziom kontroli Palanite: <span style={{ color: "#BF0000" }}>NISKI</span></strong></p>
             <p>Lokalne siły Enforcerów nie zdołały uzyskać wyraźnej kontroli nad sektorem. Kolejne porażki gangów policyjnych oznaczają, że rzeczywista władza na niższych poziomach pozostaje przede wszystkim w rękach gangów.</p>
           </div>
           <div>
-            <p><strong>Stan rozwoju kopca: WCZESNA EKSPANSJA</strong></p>
+            <p><strong>Stan rozwoju kopca: <span style={{ color: "#00378D" }}>WCZESNA EKSPANSJA</span></strong></p>
             <p>To wciąż młody i niestabilny obszar. Kolejne sektory są odkrywane, zasiedlane i przejmowane, a infrastruktura oraz granice wpływów nadal się kształtują. Duża część kopca pozostaje niezbadana.</p>
           </div>
           <div>
-            <p><strong>Ogólny status: NIESTABILNY / ROZWIJAJĄCY SIĘ</strong></p>
+            <p><strong>Ogólny status: <span style={{ color: "#00378D" }}>NIESTABILNY / ROZWIJAJĄCY SIĘ</span></strong></p>
             <p>Władza została częściowo podzielona między kilka dominujących frakcji, Chaos zapuścił pierwsze korzenie, służby porządkowe są zbyt słabe, a Spyrerzy zdążyli już uznać mieszkańców za zwierzynę łowną.</p>
           </div>
           <p><strong>Kopiec żyje. Kopiec rośnie. Kopiec ma problemy.</strong></p>
