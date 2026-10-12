@@ -451,7 +451,7 @@ export function DolaczPage() {
               whileTap={{ y: 1 }}
               type="submit"
               form="registration-form"
-              disabled={loading}
+              disabled
               className="group bg-gradient-to-t from-[#1a2b3a] to-[#1c3b56] hover:from-[#22384a] hover:to-[#244b6d] text-[#F9F5F3] uppercase tracking-[0.05em] font-semibold text-[20px] sm:text-[22px] inline-flex h-[80px] px-[40px] py-[8px] justify-center items-center gap-6 rounded-md shadow-lg transition-colors disabled:opacity-70"
               style={labelStyle}
             >
