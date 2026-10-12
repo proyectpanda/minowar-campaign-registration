@@ -1,8 +1,7 @@
 /*
- * Temporary campaign status layout.
- * The original registration form and CTA remain unchanged in DolaczPage.tsx.
- * To reopen registrations for a future edition, remove the import of this file
- * from src/styles/index.css.
+ * Campaign waiting screen while registrations are closed.
+ * To reopen registration: remove this file's import from src/styles/index.css
+ * and restore disabled={loading} on the CTA in DolaczPage.tsx.
  */
 
 #registration-form {
