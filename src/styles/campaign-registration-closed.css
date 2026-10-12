@@ -116,7 +116,7 @@ button[form="registration-form"] > span:last-child {
 
   #registration-form {
     max-width: 100%;
-    min-height: 470px;
+    min-height: 345px;
   }
 
   #registration-form::before,
