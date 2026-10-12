@@ -9,6 +9,9 @@
   width: 100%;
   max-width: 560px;
   margin-top: 32px;
+  /* The previous 23-line vox message determined the hero height.
+     Keep that space so the original hive illustration remains fully visible. */
+  min-height: 535px;
 }
 
 #registration-form > * {
@@ -55,11 +58,24 @@ button[form="registration-form"] {
   pointer-events: none;
   background-image: linear-gradient(to top, #2B2B2B, #58595B) !important;
   opacity: 1 !important;
-  animation: loading-data-pulse 3s ease-in-out infinite;
+  overflow: hidden;
   font-size: 0 !important;
 }
 
+button[form="registration-form"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  animation: loading-data-pulse 2.8s ease-in-out infinite;
+}
+
 button[form="registration-form"]::after {
+  position: relative;
+  z-index: 1;
   content: "LOADING DATA...";
   color: #F9F5F3;
   font-family: "Barlow Condensed", sans-serif;
@@ -71,13 +87,14 @@ button[form="registration-form"]::after {
 }
 
 @keyframes loading-data-pulse {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.13); }
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.14; }
 }
 
 button[form="registration-form"] > span:first-child,
 button[form="registration-form"] > span:last-child {
   position: absolute;
+  z-index: 1;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -93,6 +110,7 @@ button[form="registration-form"] > span:last-child {
 @media (max-width: 767px) {
   #registration-form {
     max-width: 100%;
+    min-height: 610px;
   }
 
   #registration-form::before,
@@ -148,7 +166,7 @@ button[form="registration-form"] > span:last-child {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  button[form="registration-form"],
+  button[form="registration-form"]::before,
   #registration-form::after {
     animation: none;
   }
