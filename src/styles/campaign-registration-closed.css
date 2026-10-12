@@ -108,9 +108,15 @@ button[form="registration-form"] > span:last-child {
 }
 
 @media (max-width: 767px) {
+  /* In the waiting layout, place the original hive artwork alongside
+     the short terminal message rather than far below it. */
+  section:has(#registration-form) > div[aria-hidden="true"] {
+    top: 260px;
+  }
+
   #registration-form {
     max-width: 100%;
-    min-height: 610px;
+    min-height: 470px;
   }
 
   #registration-form::before,
