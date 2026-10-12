@@ -16,15 +16,33 @@
   display: none !important;
 }
 
-#registration-form::before {
-  content: "++ INCOMING VOX TRANSMISSION ++\A++ ORIGIN: GREAT WARSAW CAMPAIGN NODE ++\A\A//ATTENTION HIVE CITIZENRY\A//CAMPAIGN STATUS: ACTIVE\A//ROUND ONE PREPARATIONS NOW IN PROGRESS\A//ALL PRIMARY SYSTEMS RESPONDING\A\A//EMBARKATION COUNT: 35 REGISTERED SOULS\A//GANG MANIFESTS LOCKED AND PROCESSING\A//PARTICIPANT RECORDS: CLASSIFIED\A\A//VOX RELAYS OPEN\A//TACTICAL BRIEFINGS UNDERWAY\A//PAIRING ENGINES ENGAGED\A//SCENARIO PROTOCOLS LOADING\A//CAMPAIGN SHIP HAS DEPARTED DOCK\A\A//UNDERHIVE OPERATION IN PROGRESS\A//NO FURTHER BOARDING AUTHORIZED\A//ALL HANDS REPORT TO BATTLE STATIONS\A\A== END TRANSMISSION ==";
-  display: block;
-  color: #6E757C;
+#registration-form::before,
+#registration-form::after {
+  color: #168047;
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.45;
-  white-space: pre-line;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+#registration-form::before {
+  content: "++ INCOMING VOX TRANSMISSION ++";
+  display: block;
+}
+
+#registration-form::after {
+  content: "// DECODING IN PROGRESS...";
+  display: inline-block;
+  padding-right: 5px;
+  border-right: 8px solid #168047;
+  animation: vox-cursor-blink 1s step-end infinite;
+}
+
+@keyframes vox-cursor-blink {
+  0%, 49% { border-right-color: #168047; }
+  50%, 100% { border-right-color: transparent; }
 }
 
 button[form="registration-form"] {
@@ -37,11 +55,13 @@ button[form="registration-form"] {
   cursor: default;
   pointer-events: none;
   background-image: linear-gradient(to top, #2B2B2B, #58595B) !important;
+  opacity: 1 !important;
+  animation: loading-data-pulse 3s ease-in-out infinite;
   font-size: 0 !important;
 }
 
 button[form="registration-form"]::after {
-  content: "++ ACCESS TERMINATED ++";
+  content: "LOADING DATA...";
   color: #F9F5F3;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 22px;
@@ -49,6 +69,11 @@ button[form="registration-form"]::after {
   line-height: 1;
   letter-spacing: 0.05em;
   white-space: nowrap;
+}
+
+@keyframes loading-data-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.13); }
 }
 
 button[form="registration-form"] > span:first-child,
@@ -71,9 +96,14 @@ button[form="registration-form"] > span:last-child {
     max-width: 100%;
   }
 
-  #registration-form::before {
-    font-size: 16px;
+  #registration-form::before,
+  #registration-form::after {
+    font-size: 14px;
     line-height: 1.4;
+  }
+
+  #registration-form::after {
+    border-right-width: 7px;
   }
 
   /* Make the campaign logo slightly smaller so it clears the background artwork on mobile. */
@@ -95,12 +125,12 @@ button[form="registration-form"] > span:last-child {
   }
 
   button[form="registration-form"]::after {
-    content: "++ ACCESS\A TERMINATED ++";
+    content: "LOADING DATA...";
     display: block;
     font-size: 22px;
-    line-height: 0.95;
+    line-height: 1;
     text-align: center;
-    white-space: pre-line;
+    white-space: nowrap;
   }
 
   button[form="registration-form"] > span:first-child,
@@ -115,5 +145,12 @@ button[form="registration-form"] > span:last-child {
 
   button[form="registration-form"] > span:last-child {
     right: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button[form="registration-form"],
+  #registration-form::after {
+    animation: none;
   }
 }
