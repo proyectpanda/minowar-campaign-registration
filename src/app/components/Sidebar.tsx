@@ -9,7 +9,8 @@ export const navigationItems = [
   { label: "Zasady", path: "/zasady" },
   { label: "Regulamin", path: "/regulamin" },
   { label: "Gracze", path: "/gracze" },
-  { label: "Raporty", path: "/raporty" },
+  { label: "Raport", path: "/raport" },
+  { label: "Archiwum", path: "/archiwum" },
 ];
 
 export function Sidebar() {
@@ -39,7 +40,7 @@ export function Sidebar() {
         >
           <nav className="flex flex-col gap-6 p-8">
             {navigationItems.map((item) => {
-              const active = activePath === item.path;
+              const active = activePath === item.path || (item.path === "/archiwum" && activePath.startsWith("/archiwum/"));
               return (
                 <Link
                   key={item.path}
@@ -62,15 +63,15 @@ export function Sidebar() {
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-[160px] bg-[#0d0d0e] flex-col items-center py-10 gap-20 z-30">
         <span className="w-8 h-9 inline-block [&>svg]:w-full [&>svg]:h-full" dangerouslySetInnerHTML={{ __html: skullIcon }} />
-        <nav className="flex flex-col gap-10 items-start">
+        <nav className="flex flex-col gap-10 items-start flex-1">
           {navigationItems.map((item) => {
-            const active = activePath === item.path;
+            const active = activePath === item.path || (item.path === "/archiwum" && activePath.startsWith("/archiwum/"));
             return (
               <Link
                 key={item.path}
                 to={item.path}
                 aria-current={active ? "page" : undefined}
-                className={`uppercase tracking-[0.05em] text-[22px] font-semibold transition-all duration-200 relative ${
+                className={`uppercase ${item.path === "/archiwum" ? "mt-auto" : ""} tracking-[0.05em] text-[22px] font-semibold transition-all duration-200 relative ${
                   active
                     ? "text-white"
                     : "text-[#bebdbc] hover:text-white hover:translate-x-0.5"

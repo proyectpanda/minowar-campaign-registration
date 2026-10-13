@@ -19,7 +19,9 @@ type PlayerInput = {
   camp?: string;
 };
 
-const PLAYERS_KEY = "players";
+// Archive: the summer 2026 data remains in the old "players" store key.
+// The upcoming campaign has its own empty list.
+const PLAYERS_KEY = "players-current";
 
 async function readPlayers(): Promise<Player[]> {
   const store = getStore("campaign-registrations");

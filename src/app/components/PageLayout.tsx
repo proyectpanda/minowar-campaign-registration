@@ -193,7 +193,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
       }
     });
 
-    if (window.location.pathname !== "/raporty") return;
+    if (window.location.pathname !== "/archiwum/great-warsaw-campaign-lato-2026") return;
 
     const roundFiveHeading = Array.from(document.querySelectorAll("h2")).find((heading) =>
       heading.textContent?.trim().startsWith("Runda 5 - Gasnące korytarze"),

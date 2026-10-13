@@ -9,7 +9,9 @@ type Player = {
   createdAt: string;
 };
 
-const PLAYERS_KEY = "players";
+// Archive: the summer 2026 data remains in the old "players" store key.
+// The upcoming campaign has its own empty list.
+const PLAYERS_KEY = "players-current";
 const STORE_NAME = "campaign-registrations";
 
 const CAMP_ALIASES: Record<string, string> = {

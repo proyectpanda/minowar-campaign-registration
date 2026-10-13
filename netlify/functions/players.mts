@@ -11,7 +11,9 @@ type Player = {
   createdAt: string;
 };
 
-const PLAYERS_KEY = "players";
+// Archive: the summer 2026 data remains in the old "players" store key.
+// The upcoming campaign has its own empty list.
+const PLAYERS_KEY = "players-current";
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
