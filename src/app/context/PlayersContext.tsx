@@ -10,7 +10,7 @@ export interface Player {
 
 interface PlayersContextType {
   players: Player[];
-  addPlayer: (player: Player) => void;
+  addPlayer: (player: Player) => Promise<void>;
 }
 
 const PlayersContext = createContext<PlayersContextType | undefined>(undefined);
@@ -41,25 +41,24 @@ export function PlayersProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const addPlayer = (player: Player) => {
-    fetch("/.netlify/functions/register-player", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(player),
-    })
-      .then(async (response) => {
-        const data = await response.json().catch(() => null);
-
-        if (!response.ok) {
-          console.error(data?.message || "Nie udało się zapisać zgłoszenia.");
-          return;
-        }
-
-        setPlayers((prev) => [...prev, data]);
-      })
-      .catch((error) => {
-        console.error("Could not register player", error);
+  const addPlayer = async (player: Player): Promise<void> => {
+    let response: Response;
+    try {
+      response = await fetch("/.netlify/functions/register-player", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(player),
       });
+    } catch {
+      throw new Error("Nie można połączyć się z serwerem. Spróbuj ponownie.");
+    }
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok) {
+      throw new Error(data?.message || "Nie udało się zapisać zgłoszenia.");
+    }
+
+    setPlayers((prev) => [...prev, data]);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Beer, Factory, Skull, X } from "lucide-react";
+import { X } from "lucide-react";
 import { PageLayout } from "./PageLayout";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { usePlayers } from "../context/PlayersContext";
@@ -44,32 +44,52 @@ const gangHouses = [
   "Inne",
 ];
 
-type CampId = "chmiel" | "matisoft" | "wastes";
+type CampId = "chmiel" | "matisoft" | "battlehub" | "wargamer" | "wastes";
 
 const camps: {
   id: CampId;
   name: string;
-  Icon: typeof Beer;
+  icon: string;
+  background: string;
   description: string;
 }[] = [
   {
     id: "chmiel",
     name: "Chmiel i Słód",
-    Icon: Beer,
+    icon: chmielIcon,
+    background: hiveCity,
     description:
       "Pub i lokalna baza kampanii w Legionowie. Kraftowe trunki z pianą oraz najlepsze zaplecze terenowe w sektorze mazowieckim.",
   },
   {
     id: "matisoft",
     name: "Matisoft",
-    Icon: Factory,
+    icon: matisoftIcon,
+    background: matisoftBase,
     description:
       "Sklep, klub i baza kampanii na Żeraniu. Silny lokalny punkt dla różnych gier i figurkowych wydarzeń.",
   },
   {
+    id: "battlehub",
+    name: "BattleHub",
+    icon: "/battlehub-icon.png",
+    background: "/battlehub-bg.jpg",
+    description:
+      "Miejsce stworzone przez graczy dla graczy. Przestrzeń do grania w gry wszelakie - bitewniaki, karcianki, RPGi i planszówki na południu Warszawy.",
+  },
+  {
+    id: "wargamer",
+    name: "Wargamer",
+    icon: "/wargamer-icon.png",
+    background: "/wargamer-bg.jpg",
+    description:
+      "Imponująca przestrzeń do grania w centrum Warszawy. Tutaj gry figurkowe, karciane i planszowe tętnią życiem przy stołach.",
+  },
+  {
     id: "wastes",
     name: "Wastes",
-    Icon: Skull,
+    icon: wastelandIcon,
+    background: wastlandBase,
     description:
       "Opcja dla przybyszów z nieznanego terytorium niezwiązanych z żadnym z dostępnych obozów.",
   },
@@ -93,6 +113,8 @@ export function DolaczPage() {
   const [selectedCamp, setSelectedCamp] = useState<CampId>("chmiel");
   const [gangHouseOpen, setGangHouseOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [hoveredCamp, setHoveredCamp] = useState<CampId | null>(null);
   const [successOpen, setSuccessOpen] = useState(false);
   const [successData, setSuccessData] = useState<{
     player: string;
@@ -114,24 +136,24 @@ export function DolaczPage() {
   const shouldShow = (field: keyof typeof errors) =>
     (submitted || touched[field]) && errors[field];
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setSubmitted(true);
+    setSubmitError("");
     if (errors.player || errors.gangHouse || errors.gangName || errors.email) return;
-    setLoading(true);
-    setTimeout(() => {
-      const campName = camps.find((c) => c.id === selectedCamp)!.name;
 
-      // Dodaj gracza do listy
-      addPlayer({
-        playerName: player,
+    setLoading(true);
+    const campName = camps.find((c) => c.id === selectedCamp)!.name;
+    try {
+      await addPlayer({
+        playerName: player.trim(),
         gangHouse,
-        gangName,
-        email,
+        gangName: gangName.trim(),
+        email: email.trim(),
         camp: campName,
       });
 
-      setLoading(false);
       setSuccessData({
         player,
         gangHouse,
@@ -140,16 +162,18 @@ export function DolaczPage() {
         camp: campName,
       });
       setSuccessOpen(true);
-    }, 500);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Nie udało się zapisać zgłoszenia. Spróbuj ponownie.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const activeCamp = camps.find((c) => c.id === selectedCamp)!;
+  const descriptionCamp = camps.find((c) => c.id === hoveredCamp) || activeCamp;
 
-  // Wybierz tło w zależności od wybranego obozu
-  const backgroundImage =
-    selectedCamp === "matisoft" ? matisoftBase :
-    selectedCamp === "wastes" ? wastlandBase :
-    hiveCity;
+  // Tło zmienia się po wyborze obozu. Podgląd opisu działa też na hover.
+  const backgroundImage = activeCamp.background;
 
   return (
     <PageLayout>
@@ -324,7 +348,7 @@ export function DolaczPage() {
 
               {/* Camp selection */}
               <div className="md:col-span-2 mt-[320px] md:mt-0">
-                <div className="flex items-center justify-between mb-1 max-w-[460px]">
+                <div className="flex items-center justify-between mb-1 w-full max-w-[700px] gap-3">
                   <h2
                     className="uppercase tracking-[0.05em] text-[#1c3b56] text-[24px] font-semibold"
                     style={labelStyle}
@@ -343,11 +367,10 @@ export function DolaczPage() {
                 <div
                   role="tablist"
                   aria-label="Wybór obozu"
-                  className="grid grid-cols-3 max-w-[460px] rounded-md overflow-hidden border-2 border-[#6e757c]"
+                  className="grid grid-cols-5 w-full max-w-[700px] rounded-md overflow-hidden border-2 border-[#6e757c]"
                 >
                   {camps.map((camp) => {
                     const active = camp.id === selectedCamp;
-                    const Icon = camp.Icon;
                     return (
                       <button
                         key={camp.id}
@@ -355,33 +378,23 @@ export function DolaczPage() {
                         type="button"
                         aria-selected={active}
                         onClick={() => setSelectedCamp(camp.id)}
-                        className={`flex flex-col items-center justify-center gap-2 px-4 py-5 transition-all duration-200 border-[#6e757c] border-r-2 [&:last-child]:border-r-0 ${
+                        onMouseEnter={() => setHoveredCamp(camp.id)}
+                        onMouseLeave={() => setHoveredCamp(null)}
+                        onFocus={() => setHoveredCamp(camp.id)}
+                        onBlur={() => setHoveredCamp(null)}
+                        className={`min-w-0 flex flex-col items-center justify-center gap-2 px-1 sm:px-2 md:px-3 py-3 md:py-4 transition-all duration-200 border-[#6e757c] border-r-2 [&:last-child]:border-r-0 ${
                           active
                             ? "bg-gradient-to-t from-[#1a2b3a] to-[#1c3b56] text-[#F9F5F3]"
                             : "bg-[#F9F5F3] text-[#0d0d0e] hover:bg-[#e0d9d3]"
                         }`}
                       >
-                        {camp.id === "wastes" ? (
-                          <img
-                            src={wastelandIcon}
-                            alt=""
-                            className={`w-16 h-16 object-contain ${active ? "invert" : ""}`}
-                          />
-                        ) : camp.id === "matisoft" ? (
-                          <img
-                            src={matisoftIcon}
-                            alt=""
-                            className={`w-16 h-16 object-contain ${active ? "invert" : ""}`}
-                          />
-                        ) : (
-                          <img
-                            src={chmielIcon}
-                            alt=""
-                            className={`w-16 h-16 object-contain ${active ? "invert" : ""}`}
-                          />
-                        )}
+                        <img
+                          src={camp.icon}
+                          alt=""
+                          className={`w-9 h-9 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain ${active ? "invert" : ""}`}
+                        />
                         <span
-                          className="uppercase text-center text-[20px] font-semibold tracking-[1px] leading-[20px]"
+                          className="uppercase text-center text-[12px] sm:text-[16px] lg:text-[20px] font-semibold tracking-[0.2px] sm:tracking-[0.5px] leading-[14px] sm:leading-[18px] lg:leading-[20px] break-words"
                           style={labelStyle}
                         >
                           {camp.name}
@@ -392,48 +405,34 @@ export function DolaczPage() {
                 </div>
 
                 {/* Description card */}
-                <div className="mt-3 w-[460px] bg-[#F9F5F3] border-2 border-[#6e757c] rounded-md py-4 px-8">
+                <div className="mt-3 w-full max-w-[700px] bg-[#F9F5F3] border-2 border-[#6e757c] rounded-md py-4 px-8">
                   <AnimatePresence mode="wait">
                     <motion.div
-                      key={activeCamp.id}
+                      key={descriptionCamp.id}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.2 }}
                       className="flex items-center gap-6"
                     >
-                      {activeCamp.id === "wastes" ? (
-                        <img
-                          src={wastelandIcon}
-                          alt=""
-                          className="w-16 h-16 object-contain"
-                        />
-                      ) : activeCamp.id === "matisoft" ? (
-                        <img
-                          src={matisoftIcon}
-                          alt=""
-                          className="w-16 h-16 object-contain"
-                        />
-                      ) : (
-                        <img
-                          src={chmielIcon}
-                          alt=""
-                          className="w-16 h-16 object-contain"
-                        />
-                      )}
+                      <img
+                        src={descriptionCamp.icon}
+                        alt=""
+                        className="w-16 h-16 object-contain"
+                      />
                       <div className="w-px h-16 bg-[#6e757c]" />
                       <div className="flex-1">
                         <h3
                           className="uppercase tracking-[0.05em] text-[#1c3b56] text-[20px] font-semibold"
                           style={labelStyle}
                         >
-                          {activeCamp.name}
+                          {descriptionCamp.name}
                         </h3>
                         <p
                           className="text-[#6e757c] text-[15px] mt-1"
                           style={bodyStyle}
                         >
-                          {activeCamp.description}
+                          {descriptionCamp.description}
                         </p>
                       </div>
                     </motion.div>
@@ -445,13 +444,14 @@ export function DolaczPage() {
 
           {/* CTA */}
           <div className="mt-[60px] px-6 lg:px-16 text-center relative z-10">
+            {submitError && <p role="alert" className="text-[#b3261e] mb-4 text-[16px]" style={bodyStyle}>{submitError}</p>}
             <motion.button
               ref={ctaRef}
               whileHover={{ y: -2 }}
               whileTap={{ y: 1 }}
               type="submit"
               form="registration-form"
-              disabled
+              disabled={loading}
               className="group bg-gradient-to-t from-[#1a2b3a] to-[#1c3b56] hover:from-[#22384a] hover:to-[#244b6d] text-[#F9F5F3] uppercase tracking-[0.05em] font-semibold text-[20px] sm:text-[22px] inline-flex h-[80px] px-[40px] py-[8px] justify-center items-center gap-6 rounded-md shadow-lg transition-colors disabled:opacity-70"
               style={labelStyle}
             >
@@ -523,6 +523,12 @@ export function DolaczPage() {
                   className="h-[120px] w-[120px] object-contain"
                 />
               )}
+            />
+            <img
+              src="/battlehub-partner.webp"
+              alt="Battle Hub Warszawa"
+              className="h-[120px] w-[120px] object-contain"
+              loading="lazy"
             />
           </div>
         </motion.section>

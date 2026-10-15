@@ -12,19 +12,21 @@
   }
 
   #registration-form [role="tablist"] button {
-    padding-left: 8px;
-    padding-right: 8px;
+    min-width: 0;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   #registration-form [role="tablist"] img {
-    width: 52px;
-    height: 52px;
+    width: 36px;
+    height: 36px;
   }
 
   #registration-form [role="tablist"] span {
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.6px;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.1px;
+    overflow-wrap: anywhere;
   }
 
   #registration-form [role="tablist"] + div {
