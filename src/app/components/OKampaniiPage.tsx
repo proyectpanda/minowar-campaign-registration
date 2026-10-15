@@ -91,7 +91,7 @@ export function OKampaniiPage() {
                     />
                   </a>
                   <img
-                    src="/battlehub.webp"
+                    src="/battlehub.png"
                     alt="Battle Hub Warszawa"
                     className="h-[120px] w-[120px] object-contain"
                   />
