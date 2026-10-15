@@ -37,7 +37,7 @@ const gangHouses = [
   "Ironhead Squat Prospectors",
   "Helot Chaos Cults",
   "Underhive Outcasts",
-  "Slave Ogryns",
+  "Free Ogryns",
   "Venators",
   "Spyre Hunters",
   "Malstrain Gangs",
@@ -350,7 +350,7 @@ export function DolaczPage() {
               <div className="md:col-span-2 mt-[320px] md:mt-0">
                 <div className="flex items-center justify-between mb-1 w-full max-w-[700px] gap-3">
                   <h2
-                    className="uppercase tracking-[0.05em] text-[#1c3b56] text-[24px] font-semibold"
+                    className="uppercase tracking-[0.05em] text-[#1c3b56] text-[24px] font-semibold max-md:shrink-0 max-md:whitespace-nowrap"
                     style={labelStyle}
                   >
                     Wybierz swój obóz
@@ -358,7 +358,7 @@ export function DolaczPage() {
                   <button
                     type="button"
                     onClick={() => setCampInfoOpen(true)}
-                    className="uppercase text-[#00378D] text-[16px] font-semibold tracking-[0.8px] underline"
+                    className="uppercase text-[#00378D] text-[16px] font-semibold tracking-[0.8px] underline max-md:ml-auto max-md:min-w-0 max-md:text-right"
                     style={labelStyle}
                   >
                     O co chodzi z obozem?

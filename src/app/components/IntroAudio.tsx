@@ -1,28 +1,27 @@
 import { useEffect } from "react";
 
 const INTRO_AUDIO_SRC = "/audio/epic-intro.mp3";
-const INTRO_PLAYED_KEY = "great-warsaw-intro-played";
 
 export function IntroAudio() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.sessionStorage.getItem(INTRO_PLAYED_KEY) === "true") return;
 
     const audio = new Audio(INTRO_AUDIO_SRC);
     audio.preload = "auto";
     audio.volume = 0.75;
 
-    const markAsPlayed = () => {
-      window.sessionStorage.setItem(INTRO_PLAYED_KEY, "true");
-    };
+    let disposed = false;
+    let started = false;
 
     const tryPlay = async () => {
+      if (disposed || started) return;
       try {
         await audio.play();
-        markAsPlayed();
+        if (disposed) return;
+        started = true;
         cleanupInteractionListeners();
-      } catch (error) {
-        addInteractionListeners();
+      } catch {
+        // Keep listening until a browser-approved user gesture starts playback.
       }
     };
 
@@ -31,20 +30,22 @@ export function IntroAudio() {
     };
 
     const addInteractionListeners = () => {
-      window.addEventListener("pointerdown", playAfterInteraction, { once: true });
-      window.addEventListener("keydown", playAfterInteraction, { once: true });
-      window.addEventListener("touchstart", playAfterInteraction, { once: true });
+      window.addEventListener("click", playAfterInteraction);
+      window.addEventListener("keydown", playAfterInteraction);
+      window.addEventListener("touchend", playAfterInteraction);
     };
 
     const cleanupInteractionListeners = () => {
-      window.removeEventListener("pointerdown", playAfterInteraction);
+      window.removeEventListener("click", playAfterInteraction);
       window.removeEventListener("keydown", playAfterInteraction);
-      window.removeEventListener("touchstart", playAfterInteraction);
+      window.removeEventListener("touchend", playAfterInteraction);
     };
 
-    tryPlay();
+    addInteractionListeners();
+    void tryPlay();
 
     return () => {
+      disposed = true;
       cleanupInteractionListeners();
       audio.pause();
       audio.src = "";
