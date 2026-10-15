@@ -56,7 +56,7 @@ export function RegulaminPage() {
                 <ol className="text-[#6e757c] text-[18px] leading-[28px] list-decimal pl-6 space-y-1" style={bodyStyle}>
                   <li>Głównym organizatorem kampanii jest Dominik z Minowar.com, znany na Discordzie jako „projectpanda_”.</li>
                   <li>Główny organizator pełni również funkcję głównego arbitra kampanii (Arbitratora).</li>
-                  <li>Współorganizatorami kampanii są Chmiel i Słód (opiekunowie: Marcin i Piotrek), Matisoft (opiekun: Toll Kowalski) oraz Battle Hub Warszawa.</li>
+                  <li>Współorganizatorami kampanii są Chmiel i Słód, Matisoft oraz Battle Hub Warszawa.</li>
                   <li>Organizatorzy i lokalni opiekunowie pomagają w organizacji bitew, pytaniach dotyczących kampanii, podstawowych wątpliwościach dotyczących zasad, rozwiązywaniu sporów i kontakcie z lokalną społecznością.</li>
                   <li>Ostateczne decyzje organizacyjne oraz interpretacje spornych sytuacji należą do głównego arbitra.</li>
                   <li>Bitwy odbywają się głównie w lokalizacjach partnerskich, zapewniających dostęp do stołów i terenów. Gracze mogą korzystać z dowolnej lokalizacji partnerskiej.</li>
