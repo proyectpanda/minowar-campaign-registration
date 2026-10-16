@@ -12,6 +12,8 @@ const bodyStyle = {
 
 export function GraczePage() {
   const { players } = usePlayers();
+  // Registrations are appended oldest-first; reverse a copy for display only.
+  const newestPlayersFirst = [...players].reverse();
   return (
     <PageLayout>
       <div className="relative overflow-hidden">
@@ -59,7 +61,7 @@ export function GraczePage() {
 
               {/* Table Rows / Cards */}
               <div className="space-y-0">
-                {players.map((player, index) => (
+                {newestPlayersFirst.map((player, index) => (
                   <motion.div
                     key={`${player.gangName}-${player.playerName}-${index}`}
                     initial={{ opacity: 0, x: -20 }}
