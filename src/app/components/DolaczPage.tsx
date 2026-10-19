@@ -8,7 +8,6 @@ import hiveCity from "@/imports/hivecity.b64";
 import matisoftBase from "@/imports/matisoft_base.b64";
 import wastlandBase from "@/imports/wastland.b64";
 import necromundaLogo from "@/imports/Necromunda.b64";
-import matisoftLogo from "@/imports/matisoft.b64";
 import chmielLogo from "@/imports/chmiel.b64";
 import wastelandIcon from "@/imports/wasteland.b64";
 import matisoftIcon from "@/imports/matisoftIcon.b64";
@@ -503,11 +502,11 @@ export function DolaczPage() {
               )}
             />
             <OrgLogo
-              href="https://mgc.com.pl/"
+              href="https://www.facebook.com/share/1DCG9HuiHJ/?mibextid=wwXIfr"
               label="Matisoft"
               renderLogo={() => (
                 <img
-                  src={matisoftLogo}
+                  src="/matisoft-partner.png"
                   alt="Matisoft"
                   className="h-[120px] object-contain"
                 />
@@ -524,11 +523,17 @@ export function DolaczPage() {
                 />
               )}
             />
-            <img
-              src="/battlehub-partner.webp"
-              alt="Battle Hub Warszawa"
-              className="h-[120px] w-[120px] object-contain"
-              loading="lazy"
+            <OrgLogo
+              href="https://www.battlehub.pl/"
+              label="Battle Hub Warszawa"
+              renderLogo={() => (
+                <img
+                  src="/battlehub-partner.webp"
+                  alt="Battle Hub Warszawa"
+                  className="h-[120px] w-[120px] object-contain"
+                  loading="lazy"
+                />
+              )}
             />
           </div>
         </motion.section>
