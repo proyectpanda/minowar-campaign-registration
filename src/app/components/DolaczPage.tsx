@@ -348,7 +348,10 @@ export function DolaczPage() {
 
               {/* Camp selection */}
               <div className="md:col-span-2 mt-[320px] md:mt-0">
-                <div className="flex items-center justify-between mb-1 w-full max-w-[700px] gap-3">
+                <div
+                  className="flex items-center justify-between mb-1 w-full gap-3"
+                  style={{ maxWidth: `${camps.length * 140}px` }}
+                >
                   <h2
                     className="uppercase tracking-[0.05em] text-[#1c3b56] text-[24px] font-semibold max-md:shrink-0 max-md:whitespace-nowrap"
                     style={labelStyle}
