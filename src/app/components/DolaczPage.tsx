@@ -367,7 +367,11 @@ export function DolaczPage() {
                 <div
                   role="tablist"
                   aria-label="Wybór obozu"
-                  className="grid grid-cols-5 w-full max-w-[700px] rounded-md overflow-hidden border-2 border-[#6e757c]"
+                  className="grid w-full rounded-md overflow-hidden border-2 border-[#6e757c]"
+                  style={{
+                    gridTemplateColumns: `repeat(${camps.length}, minmax(0, 1fr))`,
+                    maxWidth: `${camps.length * 140}px`,
+                  }}
                 >
                   {camps.map((camp) => {
                     const active = camp.id === selectedCamp;
