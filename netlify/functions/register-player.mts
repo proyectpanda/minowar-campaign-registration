@@ -1,3 +1,4 @@
+import { isRegistrationCampAvailable } from "../../src/config/campaign-venues";
 import type { Context } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 
@@ -165,6 +166,10 @@ export default async (req: Request, context: Context) => {
 
     if (!playerName || !email || !gangHouse || !gangName || !camp) {
       return json({ message: "Uzupełnij wszystkie wymagane pola." }, 400);
+    }
+
+    if (!isRegistrationCampAvailable(camp)) {
+      return json({ message: "Wybierz dostępną bazę kampanii." }, 400);
     }
 
     const players = await readPlayers();

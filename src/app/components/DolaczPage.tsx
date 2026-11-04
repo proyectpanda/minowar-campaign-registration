@@ -1,3 +1,4 @@
+import { campaignVenues, type CampId } from "../../config/campaign-venues";
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
@@ -43,9 +44,7 @@ const gangHouses = [
   "Inne",
 ];
 
-type CampId = "chmiel" | "matisoft" | "battlehub" | "wargamer" | "wastes";
-
-const camps: {
+const allCamps: {
   id: CampId;
   name: string;
   icon: string;
@@ -93,6 +92,8 @@ const camps: {
       "Opcja dla przybyszów z nieznanego terytorium niezwiązanych z żadnym z dostępnych obozów.",
   },
 ];
+
+const camps = allCamps.filter((camp) => campaignVenues[camp.id].enabled);
 
 const labelStyle = {
   fontFamily: '"Barlow Condensed", sans-serif',
@@ -523,18 +524,20 @@ export function DolaczPage() {
                 />
               )}
             />
-            <OrgLogo
-              href="https://www.battlehub.pl/"
-              label="Battle Hub Warszawa"
-              renderLogo={() => (
-                <img
-                  src="/battlehub-partner.webp"
-                  alt="Battle Hub Warszawa"
-                  className="h-[120px] w-[120px] object-contain"
-                  loading="lazy"
-                />
-              )}
-            />
+            {campaignVenues.battlehub.enabled && (
+              <OrgLogo
+                href="https://www.battlehub.pl/"
+                label="Battle Hub Warszawa"
+                renderLogo={() => (
+                  <img
+                    src="/battlehub-partner.webp"
+                    alt="Battle Hub Warszawa"
+                    className="h-[120px] w-[120px] object-contain"
+                    loading="lazy"
+                  />
+                )}
+              />
+            )}
           </div>
         </motion.section>
 

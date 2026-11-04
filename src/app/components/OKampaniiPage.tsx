@@ -1,3 +1,4 @@
+import { campaignVenues } from "../../config/campaign-venues";
 import { PageLayout } from "./PageLayout";
 import { motion } from "motion/react";
 import necromundaLogo from "@/imports/Necromunda.b64";
@@ -90,11 +91,13 @@ export function OKampaniiPage() {
                       className="h-[120px] w-[120px] object-contain"
                     />
                   </a>
-                  <img
-                    src="/battlehub.png"
-                    alt="Battle Hub Warszawa"
-                    className="h-[120px] w-[120px] object-contain"
-                  />
+                  {campaignVenues.battlehub.enabled && (
+                    <img
+                      src="/battlehub.png"
+                      alt="Battle Hub Warszawa"
+                      className="h-[120px] w-[120px] object-contain"
+                    />
+                  )}
                   <img
                     src="/lootpile-logo.svg"
                     alt="LootPile.eu"
@@ -119,7 +122,7 @@ export function OKampaniiPage() {
                   <li>Przy rejestracji gracz wybiera swoją domyślną bazę, czyli miejsce, z którym chce być przypisany organizacyjnie. Nie oznacza to jednak, że musi grać tylko tam. To ma pomóc w planowaniu kampanii i sprawdzeniu, gdzie zbiera się najwięcej graczy.</li>
                   <li>Za kampanię pobieramy wpisowe w kwocie 100zł. Te pieniądze przeznaczamy na opłacenie organizatorów, stołów, zarządzanie kampanią, a także na nagrody. Pieniądze są też potrzebne aby zebrać budżet na przygotowanie zaplecza terenowego na kolejne edycje eventów, bo jak każdy pewnie wie - ten system wymaga naprawdę rozbudowanego terenu do przyjemnej gry. Bez tego organizacja tego typu wydarzeń nie będzie możliwa.</li>
                   <li>Wiadomo, każdy gra aby dołożyć przeciwnikowi, pokazać kto rządzi w Hive'ie ale proszę pamietać o jednym - to nie turniej, to nie gra o złote goliackie gacie. Necromunda jest grą nie do końca zbalansowaną służącą przede wszystkim do dobrej zabawy i taką atmosferę chcemy stworzyć. Grajcie aby wygrać, w Kopcu nie ma litości! ale pamiętajcie żeby być po prostu fajnym gościem z którym każdy ponownie chętnie zagra.</li>
-                  <li>Gramy w kilku lokalizacjach partnerskich: Matisoft, Chmiel i Słód oraz Battle Hub Warszawa. Nieustannie staramy się nawiązywać współpracę z kolejnymi miejscami, aby poszerzać liczbę lokalizacji, w których można rozgrywać kampanijne bitwy.</li>
+                  <li>Gramy w kilku lokalizacjach partnerskich: Matisoft, Chmiel i Słód{campaignVenues.battlehub.enabled && " oraz Battle Hub Warszawa"}. Nieustannie staramy się nawiązywać współpracę z kolejnymi miejscami, aby poszerzać liczbę lokalizacji, w których można rozgrywać kampanijne bitwy.</li>
                   <li>Kampania jest przyjazna dla nowych graczy.</li>
                   <li>Pomalowane gangi są mile widziane, ale nie są wymagane, aby wziąć udział w kampanii.</li>
                   <li>Modele powinny być czytelne dla przeciwnika i rozsądnie reprezentować swój ekwipunek (WYSIWYG wskazany).</li>
