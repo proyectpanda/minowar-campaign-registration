@@ -71,7 +71,7 @@ export function ZasadyPage() {
                 </RuleCard>
 
                 <RuleCard title="Tworzenie gangu">
-                  <p>Gangi rozpisujemy na <strong>1000 kredytów.</strong> Dopuszczamy wszystkie oficjalne gangi Necromundy. Pomalowany gang nie jest wymagany. Gangi pomalowane i zaprezentowane na Discordzie w postaci zdjęcia i krótkiej historii otrzymują jednorazowo <strong>+1</strong> do Reputacji na start.</p>
+                  <p>Gangi rozpisujemy na <strong>1000 kredytów.</strong> Dopuszczamy wszystkie oficjalne gangi Necromundy. Pomalowany gang nie jest wymagany. Gangi pomalowane i zaprezentowane na Discordzie w postaci zdjęcia i krótkiej historii otrzymują jednorazowo na start <strong>+1 do Reputacji</strong> oraz <strong>+1 EXP (punkt doświadczenia) dla każdego wojownika w gangu.</strong></p>
                 </RuleCard>
 
                 <RuleCard title="Historia i dziedzictwo">
