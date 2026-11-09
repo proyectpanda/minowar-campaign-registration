@@ -1,9 +1,20 @@
 import { PageLayout } from "./PageLayout";
+import { ReportsTable, type Match } from "./RaportyPageV3";
 import { motion } from "motion/react";
 import necromundaLogo from "@/imports/Necromunda.b64";
 
 const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
-const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
+
+const roundOneMatches: Match[] = [
+  { playerOne: "Sir Cedric", gangOne: "Gluteus Maximus", houseOne: "Goliath", playerTwo: "Werjan", gangTwo: "Menażeria Moxxi", houseTwo: "Escher", territory: "" },
+  { playerOne: "Ciruell", gangOne: "Chłopaki \"Gryzaki\"", houseOne: "Free Ogryns", playerTwo: "Vilard", gangTwo: "Judges of Sector 67", houseTwo: "Enforcers", territory: "" },
+  { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "LosAntos237", gangTwo: "Procesja Odkupienia", houseTwo: "Cawdor", territory: "" },
+  { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath", territory: "" },
+  { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Karmatis", gangTwo: "Architekci Ciał", houseTwo: "Van Saar", territory: "" },
+  { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock", territory: "" },
+  { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors", territory: "" },
+  { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "D’ark", gangTwo: "V-rage", houseTwo: "Goliath", territory: "" },
+];
 
 export function RaportPage() {
   return (
@@ -13,6 +24,10 @@ export function RaportPage() {
           <motion.img initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} src={necromundaLogo} alt="Necromunda" className="absolute left-1/2 -translate-x-1/2 top-4 lg:left-auto lg:translate-x-0 lg:right-[80px] lg:top-8 w-[300px] max-w-[40%] z-10" />
           <div className="relative z-10 max-w-[1640px] mr-auto ml-[max(0px,min(calc((100%-1640px)/2),200px))]">
             <motion.h1 initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="uppercase font-semibold leading-[normal] text-[#0d0d0e] text-[80px] sm:text-[120px] mb-10 mt-[57px] lg:mt-0" style={labelStyle}>RAPORT</motion.h1>
+            <section className="space-y-6 pt-6" aria-labelledby="round-one-title">
+              <h2 id="round-one-title" className="text-[#1c3b56] text-[32px] font-semibold leading-[normal]" style={labelStyle}>Runda pierwsza</h2>
+              <ReportsTable matches={roundOneMatches} />
+            </section>
           </div>
         </section>
         <div className="border-t border-[#bebdbc]">
