@@ -44,6 +44,7 @@ export function RaportPage() {
                 <p>Deployment: Ambush</p>
                 <p>Objective: Turf War</p>
                 <p>Crew: Scouting Force</p>
+                <p>Termin rundy: <time dateTime="2026-11-10">10</time>–<time dateTime="2026-11-22">22 listopada 2026</time></p>
               </div>
               <ReportsTable matches={roundOneMatches} showTerritories={false} />
             </section>
