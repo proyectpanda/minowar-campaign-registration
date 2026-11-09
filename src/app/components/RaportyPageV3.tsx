@@ -5,7 +5,7 @@ import { CampaignConclusion } from "./CampaignConclusion";
 
 type Result = "win" | "lose" | "draw";
 
-type Match = {
+export type Match = {
   playerOne: string;
   gangOne: string;
   houseOne: string;
@@ -176,7 +176,7 @@ function RoundSection({ title, image, imageAlt, lore, info }: { title: string; i
   );
 }
 
-function ReportsTable({ matches }: { matches: Match[] }) {
+export function ReportsTable({ matches }: { matches: Match[] }) {
   return (
     <section className="overflow-x-auto">
       <div className="min-w-[1120px]">
