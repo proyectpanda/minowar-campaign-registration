@@ -12,7 +12,7 @@ export type Match = {
   playerTwo: string;
   gangTwo: string;
   houseTwo: string;
-  territory: string;
+  territory?: string;
   resultOne?: Result;
   resultTwo?: Result;
 };
@@ -134,7 +134,8 @@ const roundFiveLore = [
 
 const labelStyle = { fontFamily: '"Barlow Condensed", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
-const tableGrid = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
+const tableGridWithTerritories = "grid-cols-[minmax(250px,0.9fr)_minmax(390px,1.7fr)_minmax(170px,0.7fr)_112px]";
+const tableGridWithoutTerritories = "grid-cols-[minmax(175px,1fr)_minmax(225px,1.7fr)_minmax(120px,0.4fr)]";
 
 export function RaportyPageV3() {
   return (
@@ -176,23 +177,25 @@ function RoundSection({ title, image, imageAlt, lore, info }: { title: string; i
   );
 }
 
-export function ReportsTable({ matches }: { matches: Match[] }) {
+export function ReportsTable({ matches, showTerritories = true }: { matches: Match[]; showTerritories?: boolean }) {
+  const tableGrid = showTerritories ? tableGridWithTerritories : tableGridWithoutTerritories;
+
   return (
     <section className="overflow-x-auto">
-      <div className="min-w-[1120px]">
-        <div className={`grid ${tableGrid} gap-6 px-4 py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`} style={labelStyle}><span>Gracze</span><span>Gangi</span><span>Terytoria</span><span>Wynik</span></div>
-        <div>{matches.map((match) => <MatchRow key={`${match.playerOne}-${match.playerTwo}`} match={match} />)}</div>
+      <div className={showTerritories ? "min-w-[1120px]" : "min-w-[620px]"}>
+        <div className={`grid ${tableGrid} gap-6 pl-4 ${showTerritories ? "pr-4" : "pr-6"} py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`} style={labelStyle}><span>Gracze</span><span>Gangi</span>{showTerritories && <span>Terytoria</span>}<span>Wynik</span></div>
+        <div>{matches.map((match) => <MatchRow key={`${match.playerOne}-${match.playerTwo}`} match={match} tableGrid={tableGrid} showTerritories={showTerritories} />)}</div>
       </div>
     </section>
   );
 }
 
-function MatchRow({ match }: { match: Match }) {
+function MatchRow({ match, tableGrid, showTerritories }: { match: Match; tableGrid: string; showTerritories: boolean }) {
   return (
     <div className={`grid ${tableGrid} gap-6 items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`} style={labelStyle}>
       <p><span className="uppercase text-[#00378d]">{match.playerOne}</span> <span className="text-[#0d0d0e]">vs</span> <span className="uppercase text-[#00378d]">{match.playerTwo}</span></p>
       <p><span className="uppercase text-[#00378d]">{match.gangOne}</span> <span className="text-[#0d0d0e]">({match.houseOne}) vs </span><span className="uppercase text-[#00378d]">{match.gangTwo}</span> <span className="text-[#0d0d0e]">({match.houseTwo})</span></p>
-      <p className="uppercase text-[#00378d]">{match.territory}</p>
+      {showTerritories && <p className="uppercase text-[#00378d]">{match.territory}</p>}
       <div className="flex items-center gap-4 min-h-8">{match.resultOne && <ResultTag result={match.resultOne} />}{match.resultTwo && <ResultTag result={match.resultTwo} />}</div>
     </div>
   );
