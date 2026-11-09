@@ -3,8 +3,8 @@
 export const campaignVenues = {
   chmiel: { name: "Chmiel i Słód", enabled: true },
   matisoft: { name: "Matisoft", enabled: true },
-  battlehub: { name: "BattleHub", enabled: false },
-  wargamer: { name: "Wargamer", enabled: false },
+  battlehub: { name: "BattleHub", enabled: true },
+  wargamer: { name: "Wargamer", enabled: true },
   wastes: { name: "Wastes", enabled: true },
 } as const;
 
