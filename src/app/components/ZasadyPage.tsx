@@ -144,20 +144,37 @@ export function ZasadyPage() {
                   <p>Na koniec każdego cyklu sojusz House Escher może wybrać <strong>jeden z poniższych przywilejów na następny cykl.</strong> Wybrany efekt obowiązuje w bitwach z udziałem gangów Escher należących do sojuszu.</p>
                   <ol className="list-decimal pl-6 space-y-4">
                     <li>
-                      <strong>Noc na rozkaz</strong>
+                      <strong>Ciemność pachnąca lakierem</strong>
                       <p>Jeden sygnał z rozdzielni wystarczy, by sektor zniknął w ciemności. Po rozstawieniu modeli, przed pierwszą rundą, gracz Escher decyduje, czy zasada <strong>Pitch Black</strong> obejmuje cały stół, czy tylko wybraną przez niego połowę. W drugim przypadku pozostała połowa jest w pełni oświetlona i nie podlega tej zasadzie.</p>
                     </li>
                     <li>
-                      <strong>Dławiący uścisk</strong>
+                      <strong>Dławiący ucisk</strong>
                       <p>Wentylatory milkną, a korytarze wypełniają się duszącymi wyziewami. Wojownicy <strong>obu stron bez respiratora nie mogą wykonywać akcji Dash.</strong></p>
                     </li>
                     <li>
-                      <strong>Koktajl z wodociągu</strong>
+                      <strong>Magiczna woda</strong>
                       <p>Chemiczki Escher wzbogacają wodę o osłabiającą mieszankę. Przed bitwą wylosuj <strong>D3 wojowników ze starting crew przeciwnika</strong>, bez powtórzeń. Rozpoczynają bitwę ze stanem <strong>Intoxicated.</strong> Jeśli skład jest mniejszy niż wynik rzutu, efekt obejmuje go w całości.</p>
                     </li>
                     <li>
-                      <strong>Noc wypuszczonych szponów</strong>
+                      <strong>Noc długich szponów</strong>
                       <p>Escher wypuszczają stada Phelynxów do wrogich sektorów. Nie wszyscy zdążą wylizać rany. Przed bitwą rzuć k6 za <strong>każdego wojownika gangu przeciwnika poza liderem.</strong> Przy wyniku <strong>6</strong> wojownik rozpoczyna bitwę ze stanem <strong>Injured</strong>, zachowując pełną liczbę <strong>Wounds.</strong> Medyk może usunąć ten stan na zwykłych zasadach.</p>
+                    </li>
+                  </ol>
+                  <p><strong>Przywileje wysokiego ryzyka</strong></p>
+                  <p>Dwa poniższe efekty grożą otwartą interwencją Enforcerów. Tak jawnego terroru stróże porządku nie pozostawią bez odpowiedzi. Jeśli sojusz wybierze którykolwiek z nich na dany cykl, każdy gang walczący przeciwko Escher może otrzymać na bitwę <strong>jedno z poniższych, bezpłatnych wsparć ponad limit starting crew:</strong></p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li><strong>2 Enforcer Subjugator Patrol Officers</strong> z ekwipunkiem o wartości do <strong>90 kredytów na każdego.</strong></li>
+                    <li><strong>3 Hive Scum</strong> z ekwipunkiem o wartości do <strong>60 kredytów na każdego.</strong></li>
+                  </ul>
+                  <p>Wybór wsparcia należy do gracza walczącego przeciwko Escher.</p>
+                  <ol start={5} className="list-decimal pl-6 space-y-4">
+                    <li>
+                      <strong>Wrzaski Shivver</strong>
+                      <p>Krzyk Shivver niesie się kanałami vox, rozrywając myśli wrogów. Jeśli w poprzedniej turze choć jeden wojownik Escher został <strong>Out of Action</strong>, przed rozpoczęciem kolejnej tury przeciwnik musi przesunąć <strong>każdy swój model o D6 cali w losowym kierunku.</strong> Odległość i kierunek losuje się osobno dla każdego modelu.</p>
+                    </li>
+                    <li>
+                      <strong>Szkarłatny wyciek</strong>
+                      <p>Dodany do wody specyfik chemiczek Escher hamuje krzepnięcie krwi. Rany nie chcą się zasklepiać, a opatrunki szybko nasiąkają czerwienią. Wojownicy przeciwnika w stanie <strong>Seriously Injured nie mogą podczas bitwy wykonywać akcji Tend Wounds.</strong></p>
                     </li>
                   </ol>
                 </RuleCard>
