@@ -141,7 +141,25 @@ export function ZasadyPage() {
               <RulesSection title="Zasady dodatkowe i wydarzenia">
                 <RuleCard title="Ród dominujący - rządy House Escher">
                   <p>Dzięki sukcesom w poprzedniej kampanii władzę nad kopcem sprawuje <strong>House Escher,</strong> określany jako <strong>ród dominujący.</strong> Po zawarciu sojuszu gangi tego rodu mogą wpływać na warunki w wybranych sektorach, kontrolując dostawy energii i wody oraz systemy wentylacji. Pozwala to m.in. odcinać oświetlenie i pogarszać warunki życia mieszkańców.</p>
-                  <p>Szczegółowe zasady korzystania z przywilejów — wkrótce.</p>
+                  <p>Na koniec każdego cyklu sojusz House Escher może wybrać <strong>jeden z poniższych przywilejów na następny cykl.</strong> Wybrany efekt obowiązuje w bitwach z udziałem gangów Escher należących do sojuszu.</p>
+                  <ol className="list-decimal pl-6 space-y-4">
+                    <li>
+                      <strong>Noc na rozkaz</strong>
+                      <p>Jeden sygnał z rozdzielni wystarczy, by sektor zniknął w ciemności. Po rozstawieniu modeli, przed pierwszą rundą, gracz Escher decyduje, czy zasada <strong>Pitch Black</strong> obejmuje cały stół, czy tylko wybraną przez niego połowę. W drugim przypadku pozostała połowa jest w pełni oświetlona i nie podlega tej zasadzie.</p>
+                    </li>
+                    <li>
+                      <strong>Dławiący uścisk</strong>
+                      <p>Wentylatory milkną, a korytarze wypełniają się duszącymi wyziewami. Wojownicy <strong>obu stron bez respiratora nie mogą wykonywać akcji Dash.</strong></p>
+                    </li>
+                    <li>
+                      <strong>Koktajl z wodociągu</strong>
+                      <p>Chemiczki Escher wzbogacają wodę o osłabiającą mieszankę. Przed bitwą wylosuj <strong>D3 wojowników ze starting crew przeciwnika</strong>, bez powtórzeń. Rozpoczynają bitwę ze stanem <strong>Intoxicated.</strong> Jeśli skład jest mniejszy niż wynik rzutu, efekt obejmuje go w całości.</p>
+                    </li>
+                    <li>
+                      <strong>Noc wypuszczonych szponów</strong>
+                      <p>Escher wypuszczają stada Phelynxów do wrogich sektorów. Nie wszyscy zdążą wylizać rany. Przed bitwą rzuć k6 za <strong>każdego wojownika gangu przeciwnika poza liderem.</strong> Przy wyniku <strong>6</strong> wojownik rozpoczyna bitwę ze stanem <strong>Injured</strong>, zachowując pełną liczbę <strong>Wounds.</strong> Medyk może usunąć ten stan na zwykłych zasadach.</p>
+                    </li>
+                  </ol>
                 </RuleCard>
 
                 <RuleCard title="Skażenie Chaosem oraz możliwa infekcja Malstrain">
