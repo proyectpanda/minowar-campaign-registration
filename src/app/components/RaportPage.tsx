@@ -1,3 +1,4 @@
+import { RoundOneGallery } from "./RoundOneGallery";
 import { PageLayout } from "./PageLayout";
 import { ReportsTable, type Match } from "./RaportyPageV3";
 import { motion } from "motion/react";
@@ -47,6 +48,7 @@ export function RaportPage() {
                 <p>Termin rundy: <time dateTime="2026-11-10">10</time>–<time dateTime="2026-11-22">22 listopada 2026</time></p>
               </div>
               <ReportsTable matches={roundOneMatches} showTerritories={false} />
+              <RoundOneGallery />
             </section>
           </div>
         </section>
