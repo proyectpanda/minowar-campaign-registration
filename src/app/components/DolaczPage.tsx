@@ -515,8 +515,6 @@ export function DolaczPage() {
                 />
               )}
             />
-              />
-            )}
           </div>
         </motion.section>
 
