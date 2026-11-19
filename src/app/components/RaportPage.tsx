@@ -8,11 +8,11 @@ const bodyStyle = { fontFamily: '"Roboto Condensed", system-ui, sans-serif' };
 const roundHeadingClass = "text-[#1c3b56] text-[32px] font-semibold leading-[normal]";
 
 const roundOneMatches: Match[] = [
-  { playerOne: "Sir Cedric", gangOne: "Gluteus Maximus", houseOne: "Goliath", playerTwo: "Werjan", gangTwo: "Menażeria Moxxi", houseTwo: "Escher" },
-  { playerOne: "Ciruell", gangOne: "Chłopaki \"Gryzaki\"", houseOne: "Free Ogryns", playerTwo: "Vilard", gangTwo: "Judges of Sector 67", houseTwo: "Enforcers" },
-  { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "LosAntos237", gangTwo: "Procesja Odkupienia", houseTwo: "Cawdor" },
-  { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath" },
-  { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Karmatis", gangTwo: "Architekci Ciał", houseTwo: "Van Saar" },
+  { playerOne: "Sir Cedric", gangOne: "Gluteus Maximus", houseOne: "Goliath", playerTwo: "Werjan", gangTwo: "Menażeria Moxxi", houseTwo: "Escher", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Ciruell", gangOne: "Chłopaki \"Gryzaki\"", houseOne: "Free Ogryns", playerTwo: "Vilard", gangTwo: "Judges of Sector 67", houseTwo: "Enforcers", resultOne: "draw", resultTwo: "draw" },
+  { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "LosAntos237", gangTwo: "Procesja Odkupienia", houseTwo: "Cawdor", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath", resultOne: "win", resultTwo: "lose" },
+  { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Karmatis", gangTwo: "Architekci Ciał", houseTwo: "Van Saar", resultOne: "win", resultTwo: "lose" },
   { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock" },
   { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors" },
   { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "D’ark", gangTwo: "V-rage", houseTwo: "Goliath" },
