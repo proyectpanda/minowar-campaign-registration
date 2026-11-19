@@ -68,22 +68,6 @@ const allCamps: {
       "Sklep, klub i baza kampanii na Żeraniu. Silny lokalny punkt dla różnych gier i figurkowych wydarzeń.",
   },
   {
-    id: "battlehub",
-    name: "BattleHub",
-    icon: "/battlehub-icon.png",
-    background: "/battlehub-bg.jpg",
-    description:
-      "Miejsce stworzone przez graczy dla graczy. Przestrzeń do grania w gry wszelakie - bitewniaki, karcianki, RPGi i planszówki na południu Warszawy.",
-  },
-  {
-    id: "wargamer",
-    name: "Wargamer",
-    icon: "/wargamer-icon.png",
-    background: "/wargamer-bg.jpg",
-    description:
-      "Imponująca przestrzeń do grania w centrum Warszawy. Tutaj gry figurkowe, karciane i planszowe tętnią życiem przy stołach.",
-  },
-  {
     id: "wastes",
     name: "Wastes",
     icon: wastelandIcon,
@@ -531,18 +515,6 @@ export function DolaczPage() {
                 />
               )}
             />
-            {campaignVenues.battlehub.enabled && (
-              <OrgLogo
-                href="https://www.battlehub.pl/"
-                label="Battle Hub Warszawa"
-                renderLogo={() => (
-                  <img
-                    src="/battlehub-partner.webp"
-                    alt="Battle Hub Warszawa"
-                    className="h-[120px] w-[120px] object-contain"
-                    loading="lazy"
-                  />
-                )}
               />
             )}
           </div>
