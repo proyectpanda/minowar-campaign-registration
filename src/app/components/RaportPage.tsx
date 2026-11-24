@@ -17,7 +17,7 @@ const roundOneMatches: Match[] = [
   { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock", resultOne: "lose", resultTwo: "win" },
   { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors", resultOne: "lose", resultTwo: "win" },
   { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "D’ark", gangTwo: "V-rage", houseTwo: "Goliath", resultOne: "lose", resultTwo: "win" },
-  { playerOne: "", gangOne: "Cheap Bastards", houseOne: "", playerTwo: "Projectpanda", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "BrotherPit", gangOne: "Cheap Bastards", houseOne: "Delaque", playerTwo: "Projectpanda", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts", resultOne: "lose", resultTwo: "win" },
 ];
 
 const roundTwoMatches: Match[] = [
@@ -28,8 +28,7 @@ const roundTwoMatches: Match[] = [
   { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath" },
   { playerOne: "Ciruell", gangOne: "Chłopaki \"Gryzaki\"", houseOne: "Free Ogryns", playerTwo: "Sir Cedric", gangTwo: "Gluteus Maximus", houseTwo: "Goliath" },
   { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "Vilard", gangTwo: "Judges of Sector 67", houseTwo: "Enforcers" },
-  { playerOne: "D’ark", gangOne: "V-rage", houseOne: "Goliath", playerTwo: "", gangTwo: "Cheap Bastards", houseTwo: "" },
-  { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Rezerwa", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts" },
+  { playerOne: "D’ark", gangOne: "V-rage", houseOne: "Goliath", playerTwo: "BrotherPit", gangTwo: "Cheap Bastards", houseTwo: "Delaque" },
 ];
 
 export function RaportPage() {
@@ -64,7 +63,7 @@ export function RaportPage() {
               <RoundOneGallery />
             </section>
             <section className="mt-12 space-y-6 border-t border-[#bebdbc] pt-8" aria-labelledby="round-two-title">
-              <h2 id="round-two-title" className={roundHeadingClass} style={labelStyle}>RUNDA II — PO TRUPACH DO FORTUNY</h2>
+              <h2 id="round-two-title" className={roundHeadingClass} style={labelStyle}>RUNDA II — BIEG PO ŁUPY</h2>
               <img
                 src="/round-2.jpg"
                 alt="Gangi walczą o porzucony ładunek w przemysłowym hangarze Kopca"
