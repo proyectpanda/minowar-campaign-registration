@@ -14,9 +14,22 @@ const roundOneMatches: Match[] = [
   { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "LosAntos237", gangTwo: "Procesja Odkupienia", houseTwo: "Cawdor", resultOne: "win", resultTwo: "lose" },
   { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath", resultOne: "win", resultTwo: "lose" },
   { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Karmatis", gangTwo: "Architekci Ciał", houseTwo: "Van Saar", resultOne: "win", resultTwo: "lose" },
-  { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock" },
-  { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors" },
-  { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "D’ark", gangTwo: "V-rage", houseTwo: "Goliath" },
+  { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "D’ark", gangTwo: "V-rage", houseTwo: "Goliath", resultOne: "lose", resultTwo: "win" },
+  { playerOne: "", gangOne: "Cheap Bastards", houseOne: "", playerTwo: "Projectpanda", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts", resultOne: "lose", resultTwo: "win" },
+];
+
+const roundTwoMatches: Match[] = [
+  { playerOne: "Blackart", gangOne: "Warp-Fried Spritzers", houseOne: "Escher", playerTwo: "Karmatis", gangTwo: "Architekci Ciał", houseTwo: "Van Saar" },
+  { playerOne: "Aternn", gangOne: "The Blacklight Coven", houseOne: "Escher", playerTwo: "End3r", gangTwo: "Salamanders", houseTwo: "Ironhead Squat Prospectors" },
+  { playerOne: "Werjan", gangOne: "Menażeria Moxxi", houseOne: "Escher", playerTwo: "kacpa022", gangTwo: "Złomowi Piraci", houseTwo: "Orlock" },
+  { playerOne: "Marcin z Chmielu", gangOne: "TOO FAST FOR LOVE", houseOne: "Escher", playerTwo: "LosAntos237", gangTwo: "Procesja Odkupienia", houseTwo: "Cawdor" },
+  { playerOne: "Adam1983", gangOne: "Wyld Babes", houseOne: "Escher", playerTwo: "Beton", gangTwo: "Brzydcy i źli", houseTwo: "Goliath" },
+  { playerOne: "Ciruell", gangOne: "Chłopaki \"Gryzaki\"", houseOne: "Free Ogryns", playerTwo: "Sir Cedric", gangTwo: "Gluteus Maximus", houseTwo: "Goliath" },
+  { playerOne: "Projectpanda", gangOne: "Die Schrotthersteller", houseOne: "Free Ogryns", playerTwo: "Vilard", gangTwo: "Judges of Sector 67", houseTwo: "Enforcers" },
+  { playerOne: "D’ark", gangOne: "V-rage", houseOne: "Goliath", playerTwo: "", gangTwo: "Cheap Bastards", houseTwo: "" },
+  { playerOne: "Projectpanda", gangOne: "Brood Zero", houseOne: "Malstrain Gangs", playerTwo: "Rezerwa", gangTwo: "Vaag’Inesh Unwashed", houseTwo: "Underhive Outcasts" },
 ];
 
 export function RaportPage() {
@@ -49,6 +62,29 @@ export function RaportPage() {
               </div>
               <ReportsTable matches={roundOneMatches} showTerritories={false} />
               <RoundOneGallery />
+            </section>
+            <section className="mt-12 space-y-6 border-t border-[#bebdbc] pt-8" aria-labelledby="round-two-title">
+              <h2 id="round-two-title" className={roundHeadingClass} style={labelStyle}>RUNDA II — PO TRUPACH DO FORTUNY</h2>
+              <img
+                src="/round-2.jpg"
+                alt="Gangi walczą o porzucony ładunek w przemysłowym hangarze Kopca"
+                width={1915}
+                height={821}
+                className="h-auto w-full"
+                loading="lazy"
+              />
+              <div className="space-y-3 text-[#6e757c] text-[18px] leading-[28px]" style={bodyStyle}>
+                <p>Plotki okazały się prawdziwe. Wzdłuż trasy kolejowej na niższym poziomie Kopca leżą ładunki, które wypadły z uszkodzonego pociągu. Co w nich jest, nie wiadomo, ale na pewno da się to sprzedać.</p>
+                <p>Gangi, którym udało się zabezpieczyć włazy, ruszyły w głąb sektora, by zagarnąć jak najwięcej towaru. Tuż za nimi podążają ci, którzy przegrali walkę o przejście, ale nie zamierzają wracać z pustymi rękami. Rozpoczyna się brutalny pościg wśród przemysłowych ruin, zardzewiałych instalacji i porzuconych kontenerów.</p>
+                <p><strong>Nie trzeba być pierwszym przy łupach. Wystarczy, że ci, którzy byli pierwsi, nie wrócą z nimi żywi.</strong></p>
+              </div>
+              <div className={roundHeadingClass} style={labelStyle}>
+                <p>Deployment: Chance Encounter</p>
+                <p>Objective: Tunnel Clash</p>
+                <p>Crew: Escalating Engagement</p>
+                <p>Termin rundy: <time dateTime="2026-11-26">26 listopada</time> – <time dateTime="2026-12-06">6 grudnia 2026</time></p>
+              </div>
+              <ReportsTable matches={roundTwoMatches} showTerritories={false} />
             </section>
           </div>
         </section>

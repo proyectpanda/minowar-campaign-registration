@@ -184,7 +184,7 @@ export function ReportsTable({ matches, showTerritories = true }: { matches: Mat
     <section className="overflow-x-auto">
       <div className={showTerritories ? "min-w-[1120px]" : "min-w-[620px]"}>
         <div className={`grid ${tableGrid} gap-6 pl-4 ${showTerritories ? "pr-4" : "pr-6"} py-2 border-b-2 border-[#0d0d0e] text-[#0d0d0e] text-[18px] font-medium uppercase`} style={labelStyle}><span>Gracze</span><span>Gangi</span>{showTerritories && <span>Terytoria</span>}<span>Wynik</span></div>
-        <div>{matches.map((match) => <MatchRow key={`${match.playerOne}-${match.playerTwo}`} match={match} tableGrid={tableGrid} showTerritories={showTerritories} />)}</div>
+        <div>{matches.map((match) => <MatchRow key={`${match.playerOne || "—"}-${match.playerTwo || "—"}`} match={match} tableGrid={tableGrid} showTerritories={showTerritories} />)}</div>
       </div>
     </section>
   );
@@ -193,8 +193,8 @@ export function ReportsTable({ matches, showTerritories = true }: { matches: Mat
 function MatchRow({ match, tableGrid, showTerritories }: { match: Match; tableGrid: string; showTerritories: boolean }) {
   return (
     <div className={`grid ${tableGrid} gap-6 items-center pl-4 pr-6 py-3 bg-[#f9f5f3] border-b border-[#bebdbc] text-[20px] font-semibold leading-[normal]`} style={labelStyle}>
-      <p><span className="uppercase text-[#00378d]">{match.playerOne}</span> <span className="text-[#0d0d0e]">vs</span> <span className="uppercase text-[#00378d]">{match.playerTwo}</span></p>
-      <p><span className="uppercase text-[#00378d]">{match.gangOne}</span> <span className="text-[#0d0d0e]">({match.houseOne}) vs </span><span className="uppercase text-[#00378d]">{match.gangTwo}</span> <span className="text-[#0d0d0e]">({match.houseTwo})</span></p>
+      <p><span className="uppercase text-[#00378d]">{match.playerOne || "—"}</span> <span className="text-[#0d0d0e]">vs</span> <span className="uppercase text-[#00378d]">{match.playerTwo || "—"}</span></p>
+      <p><span className="uppercase text-[#00378d]">{match.gangOne}</span> <span className="text-[#0d0d0e]">{match.houseOne ? `(${match.houseOne}) ` : ""}vs </span><span className="uppercase text-[#00378d]">{match.gangTwo}</span> <span className="text-[#0d0d0e]">{match.houseTwo ? `(${match.houseTwo})` : ""}</span></p>
       {showTerritories && <p className="uppercase text-[#00378d]">{match.territory}</p>}
       <div className="flex items-center gap-4 min-h-8">{match.resultOne && <ResultTag result={match.resultOne} />}{match.resultTwo && <ResultTag result={match.resultTwo} />}</div>
     </div>
